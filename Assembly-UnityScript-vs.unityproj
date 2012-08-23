@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+	<ProductVersion>10.0.20506</ProductVersion>
+	<SchemaVersion>2.0</SchemaVersion>
+	<ProjectGuid>{62978678-22A1-6CE6-422E-40560D26D52F}</ProjectGuid>
+	<OutputType>Library</OutputType>
+	<AppDesignerFolder>Properties</AppDesignerFolder>
+	<RootNamespace></RootNamespace>
+	<AssemblyName>Assembly-UnityScript</AssemblyName>
+	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+	<FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	<DebugSymbols>true</DebugSymbols>
+	<DebugType>full</DebugType>
+	<Optimize>false</Optimize>
+	<OutputPath>Temp\bin\Debug\</OutputPath>
+	<DefineConstants>DEBUG;TRACE;UNITY_3_5_0;UNITY_3_5;UNITY_EDITOR;ENABLE_PROFILER;UNITY_STANDALONE_WIN;ENABLE_GENERICS;ENABLE_DUCK_TYPING;ENABLE_TERRAIN;ENABLE_MOVIES;ENABLE_WEBCAM;ENABLE_MICROPHONE;ENABLE_NETWORK;ENABLE_CLOTH;ENABLE_WWW;ENABLE_SUBSTANCE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+	<DebugType>pdbonly</DebugType>
+	<Optimize>true</Optimize>
+	<OutputPath>Temp\bin\Release\</OutputPath>
+	<DefineConstants>TRACE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+	<Reference Include="System" />
+    <Reference Include="System.XML" />
+	<Reference Include="System.Core" />
+	<Reference Include="UnityEngine">
+	  <HintPath>D:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	</Reference>
+	<Reference Include="UnityEditor">
+	  <HintPath>D:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	</Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\AI Package\WeaponScripts\AI.js" />
+     <Compile Include="Assets\AI Package\WeaponScripts\AIAnimation.js" />
+     <Compile Include="Assets\AI Package\WeaponScripts\AutoWayPoint.js" />
+     <Compile Include="Assets\AI Package\WeaponScripts\CharacterDamage.js" />
+     <Compile Include="Assets\AI Package\WeaponScripts\DamageReceiver.js" />
+     <Compile Include="Assets\AI Package\WeaponScripts\Explosion-Advanced.js" />
+     <Compile Include="Assets\AI Package\WeaponScripts\Explosion-Simple.js" />
+     <Compile Include="Assets\AI Package\WeaponScripts\MachineGun.js" />
+     <Compile Include="Assets\AI Package\WeaponScripts\PlayerWeapons.js" />
+     <Compile Include="Assets\AI Package\WeaponScripts\Rocket.js" />
+     <Compile Include="Assets\AI Package\WeaponScripts\RocketLauncher.js" />
+     <Compile Include="Assets\AI Package\WeaponScripts\SentryGun.js" />
+     <Compile Include="Assets\Classes\DamMissionMode.js" />
+     <Compile Include="Assets\Classes\GUIHandler.js" />
+     <Compile Include="Assets\Classes\GameMode.js" />
+     <Compile Include="Assets\Classes\InventoryWeapon.js" />
+     <Compile Include="Assets\Classes\PowerupTimer.js" />
+     <Compile Include="Assets\Classes\ReloadTimer.js" />
+     <Compile Include="Assets\Classes\RespawnTimer.js" />
+     <Compile Include="Assets\Classes\SurvivalMode.js" />
+     <Compile Include="Assets\Classes\Timer.js" />
+     <Compile Include="Assets\Scripts\autoSpawnPoint.js" />
+     <Compile Include="Assets\Scripts\damageListener.js" />
+     <Compile Include="Assets\Scripts\frisbeeMotion.js" />
+     <Compile Include="Assets\Scripts\gameHandler.js" />
+     <Compile Include="Assets\Scripts\healthAI.js" />
+     <Compile Include="Assets\Scripts\healthManager.js" />
+     <Compile Include="Assets\Scripts\loadout.js" />
+     <Compile Include="Assets\Scripts\mainMenu.js" />
+     <Compile Include="Assets\Scripts\manageWeaponFiring.js" />
+     <Compile Include="Assets\Scripts\noDoubleJump.js" />
+     <Compile Include="Assets\Scripts\ragdollDeathCounter.js" />
+     <Compile Include="Assets\Tools\TerrainToolkit\TerrainToolkitEnums.js" />
+     <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
+     <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
+     <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
+     <None Include="Assets\Tools\TerrainToolkit\Read me.txt" />
+     <None Include="Assets\Tools\UltimateRagdollFree\__U_r_g_README.txt" />
+ <Reference Include="Assembly-UnityScript-firstpass">
+ <HintPath>Library\ScriptAssemblies\Assembly-UnityScript-firstpass.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass-vs.csproj">
+      <Project>{BDA7723F-CFDF-5889-9DCC-D9EF3D369966}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	   Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>
