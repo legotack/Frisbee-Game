@@ -16,6 +16,7 @@ static class GUIHandler {
 	var background : Texture;
 	var backhandReticle : Texture;
 	var forehandReticle : Texture;
+	var frisbeeIcon : Texture;
 		
 	function loadColors(colors : Color[]) {
 		GUIColor = colors[0];
@@ -31,6 +32,7 @@ static class GUIHandler {
 		background = images[2];
 		backhandReticle = images[3];
 		forehandReticle = images[4];
+		frisbeeIcon = images[5];
 	}
 	
 	function setSkin(skin : GUISkin) {
@@ -51,5 +53,19 @@ static class GUIHandler {
 		GUI.skin = skin;
 		return GUI.Button(Rect(x,y,width,height),text);
 	}
-
+	
+	function progressBar(coeff : float, color : Color,inverted : boolean) {
+		GUI.color = fadedBarColor;
+		if (inverted) {
+			GUI.DrawTexture(Rect(Screen.width - 15 - monotone.width,Screen.height - 15 - monotone.height,monotone.width,monotone.height),monotone,ScaleMode.StretchToFill);
+			GUI.color = color;
+			GUI.DrawTexture(Rect(Screen.width - 15 - monotone.width * coeff,Screen.height - 15 - monotone.height,monotone.width * coeff,monotone.height),monotone,ScaleMode.StretchToFill);
+		}
+		else {
+			GUI.DrawTexture(Rect(15,Screen.height - 15 - monotone.height,monotone.width,monotone.height),monotone,ScaleMode.StretchToFill);
+			GUI.color = color;
+			GUI.DrawTexture(Rect(15,Screen.height - 15 - monotone.height,monotone.width * coeff,monotone.height),monotone,ScaleMode.StretchToFill);
+		}
+		GUI.color = Color.white;
+	}
 }

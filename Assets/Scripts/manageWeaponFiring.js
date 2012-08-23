@@ -4,9 +4,11 @@ var game : gameHandler;
 
 private var weapon : InventoryWeapon;
 private var health : healthManager;
+private var inventory : loadout;
 private var respawnTimer : RespawnTimer;
 
 function Start () {
+	inventory = GetComponent(loadout);
 	weapon = getInventoryWeapon(0);
 	health = GetComponent(healthManager);
 	respawnTimer = new RespawnTimer(4);
@@ -17,17 +19,14 @@ function Start () {
 function Update () {
 	var w : boolean = health.wasAlive;
 	if (health.isAliveUpdate()) {
-		if (Input.GetButtonDown("Fire1") && weapon.reloadTimer.canShoot()) {
+		if (Input.GetButtonDown("Fire1") && weapon.reloadTimer.canShoot() && weapon.ammoCounter.hasEnoughAmmo())
 			shoot(weapon.weapon);
-			weapon.reloadTimer.takeShot();
-		}
 		if (Input.GetButtonDown("Fire2") && weapon.reloadTimer.canShoot())
 			weapon.powerupTimer.setOn(true);
 		if (Input.GetButton("Fire2") && weapon.reloadTimer.canShoot() && weapon.powerupTimer.activated)
 			weapon.powerupTimer.update();
-		if (Input.GetButtonUp("Fire2") && weapon.reloadTimer.canShoot() && weapon.powerupTimer.activated) {
+		if (Input.GetButtonUp("Fire2") && weapon.reloadTimer.canShoot() && weapon.powerupTimer.activated && weapon.ammoCounter.hasEnoughAmmo()) {
 			shoot(weapon.weapon).GetComponent(frisbeeMotion).setForehand(weapon.powerupTimer.getValue());
-			weapon.reloadTimer.takeShot();
 			weapon.powerupTimer.reset();
 		}
 		checkForWeaponSwitches();
@@ -43,7 +42,9 @@ function Update () {
 }
 
 function shoot(frisbee : Transform) {
-	var f : Transform = Instantiate(frisbee,transform.position + transform.forward * 1.1,transform.rotation);
+	weapon.reloadTimer.takeShot();
+	weapon.ammoCounter.takeShot();
+	var f : Transform = Instantiate(frisbee,transform.position + transform.forward * frisbee.GetComponent(frisbeeMotion).getRadius(),transform.rotation);
 	frisbee.rigidbody.velocity = transform.parent.GetComponent(CharacterController).velocity;
 	frisbee.GetComponent(frisbeeMotion).shooter = transform;
 	return f;
@@ -71,7 +72,7 @@ function checkForWeaponSwitches() {
 }
 
 function getInventoryWeapon(i : int) {
-	return transform.GetComponent(loadout).weapons[i];
+	return inventory.weapons[i];
 }
 
 function OnGUI() {
@@ -83,16 +84,17 @@ function OnGUI() {
 
 function drawDeathScreen() { //trigger end game if death ends game?
 	var timeBeforeRespawn : float = respawnTimer.getValue();
-	renderBar(timeBeforeRespawn,GUIHandler.GUIColor,true);
+	GUIHandler.progressBar(timeBeforeRespawn,GUIHandler.GUIColor,true);
 	if (timeBeforeRespawn >= 1 && GUI.Button(Rect(Screen.width - 15 - GUIHandler.monotone.width,Screen.height - 60 - GUIHandler.monotone.height, GUIHandler.monotone.width, 30),"Respawn"))
 		respawn();
 }
 
 function drawHUD() {
 	if (weapon.powerupTimer.activated)
-		renderBar(weapon.powerupTimer.getValue(),GUIHandler.GUIColor,true);
-	renderBar(health.getHealthRatio(),GUIHandler.healthColor,false);
+		GUIHandler.progressBar(weapon.powerupTimer.getValue(),GUIHandler.GUIColor,true);
+	GUIHandler.progressBar(health.getHealthRatio(),GUIHandler.healthColor,false);
 	renderReticle(weapon.powerupTimer.activated ? 64 : 128 * weapon.reloadTimer.getValue(),GUIHandler.GUIColor);
+	renderAmmo();
 }
 
 function renderReticle(width : int, color : Color) {
@@ -103,17 +105,15 @@ function renderReticle(width : int, color : Color) {
 	GUI.DrawTexture(Rect(x,y,width,width),weapon.powerupTimer.activated ? GUIHandler.forehandReticle : GUIHandler.backhandReticle,ScaleMode.StretchToFill);
 }
 
-function renderBar(coeff : float, color : Color,inverted : boolean) {
-	GUI.color = GUIHandler.fadedBarColor;
-	if (inverted) {
-		GUI.DrawTexture(Rect(Screen.width - 15 - GUIHandler.monotone.width,Screen.height - 15 - GUIHandler.monotone.height,GUIHandler.monotone.width,GUIHandler.monotone.height),GUIHandler.monotone,ScaleMode.StretchToFill);
-		GUI.color = color;
-		GUI.DrawTexture(Rect(Screen.width - 15 - GUIHandler.monotone.width * coeff,Screen.height - 15 - GUIHandler.monotone.height,GUIHandler.monotone.width * coeff,GUIHandler.monotone.height),GUIHandler.monotone,ScaleMode.StretchToFill);
+function renderAmmo() {
+	if (weapon.ammoCounter.hasEnoughAmmo()) {
+		GUI.color = Color.green;
+		var numFrisbees : int = (weapon.ammoCounter.ammo > 16) ? 16 : weapon.ammoCounter.ammo;
+		for (var i : int = 0; i < numFrisbees; i++)
+			GUI.DrawTexture(Rect(15 + 16 * i,Screen.height - 51,16,16),GUIHandler.frisbeeIcon);
 	}
 	else {
-		GUI.DrawTexture(Rect(15,Screen.height - 15 - GUIHandler.monotone.height,GUIHandler.monotone.width,GUIHandler.monotone.height),GUIHandler.monotone,ScaleMode.StretchToFill);
-		GUI.color = color;
-		GUI.DrawTexture(Rect(15,Screen.height - 15 - GUIHandler.monotone.height,GUIHandler.monotone.width * coeff,GUIHandler.monotone.height),GUIHandler.monotone,ScaleMode.StretchToFill);
+		GUI.color = Color.red;
+		GUI.DrawTexture(Rect(15,Screen.height - 51,16,16),GUIHandler.frisbeeIcon);
 	}
-	GUI.color = Color.white;
 }

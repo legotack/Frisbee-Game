@@ -1,0 +1,384 @@
+[33mcommit 79a957784776e5819f21dd9bc2f482e19e845aef[m
+Author: unknown <wimerrill@W1S3888WiMerrill.packer.edu>
+Date:   Thu Aug 23 12:46:17 2012 -0400
+
+    Resized frisbees, buggy napalm frisbees and vehicles
+
+[1mdiff --git a/Assembly-CSharp-Editor-vs.csproj b/Assembly-CSharp-Editor-vs.csproj[m
+[1mnew file mode 100644[m
+[1mindex 0000000..bb5de19[m
+[1m--- /dev/null[m
+[1m+++ b/Assembly-CSharp-Editor-vs.csproj[m
+[36m@@ -0,0 +1,79 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="utf-8"?>[m
+[32m+[m[32m<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">[m
+[32m+[m[32m  <PropertyGroup>[m
+[32m+[m	[32m<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>[m
+[32m+[m	[32m<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>[m
+[32m+[m	[32m<ProductVersion>10.0.20506</ProductVersion>[m
+[32m+[m	[32m<SchemaVersion>2.0</SchemaVersion>[m
+[32m+[m	[32m<ProjectGuid>{F33694F3-F925-E9F6-D0AC-51A55111A78A}</ProjectGuid>[m
+[32m+[m	[32m<OutputType>Library</OutputType>[m
+[32m+[m	[32m<AppDesignerFolder>Properties</AppDesignerFolder>[m
+[32m+[m	[32m<RootNamespace></RootNamespace>[m
+[32m+[m	[32m<AssemblyName>Assembly-CSharp-Editor</AssemblyName>[m
+[32m+[m	[32m<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>[m
+[32m+[m	[32m<FileAlignment>512</FileAlignment>[m
+[32m+[m[32m  </PropertyGroup>[m
+[32m+[m[32m  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">[m
+[32m+[m	[32m<DebugSymbols>true</DebugSymbols>[m
+[32m+[m	[32m<DebugType>full</DebugType>[m
+[32m+[m	[32m<Optimize>false</Optimize>[m
+[32m+[m	[32m<OutputPath>Temp\bin\Debug\</OutputPath>[m
+[32m+[m	[32m<DefineConstants>DEBUG;TRACE;UNITY_3_5_5;UNITY_3_5;UNITY_EDITOR;ENABLE_PROFILER;UNITY_STANDALONE_WIN;ENABLE_GENERICS;ENABLE_DUCK_TYPING;ENABLE_TERRAIN;ENABLE_MOVIES;ENABLE_WEBCAM;ENABLE_MICROPHONE;ENABLE_NETWORK;ENABLE_CLOTH;ENABLE_WWW;ENABLE_SUBSTANCE</DefineConstants>[m
+[32m+[m	[32m<ErrorReport>prompt</ErrorReport>[m
+[32m+[m	[32m<WarningLevel>4</WarningLevel>[m
+[32m+[m	[32m<NoWarn>0169</NoWarn>[m
+[32m+[m[32m  </PropertyGroup>[m
+[32m+[m[32m  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">[m
+[32m+[m	[32m<DebugType>pdbonly</DebugType>[m
+[32m+[m	[32m<Optimize>true</Optimize>[m
+[32m+[m	[32m<OutputPath>Temp\bin\Release\</OutputPath>[m
+[32m+[m	[32m<DefineConstants>TRACE</DefineConstants>[m
+[32m+[m	[32m<ErrorReport>prompt</ErrorReport>[m
+[32m+[m	[32m<WarningLevel>4</WarningLevel>[m
+[32m+[m	[32m<NoWarn>0169</NoWarn>[m
+[32m+[m[32m  </PropertyGroup>[m
+[32m+[m[32m  <ItemGroup>[m
+[32m+[m	[32m<Reference Include="System" />[m
+[32m+[m[32m    <Reference Include="System.XML" />[m
+[32m+[m	[32m<Reference Include="System.Core" />[m
+[32m+[m	[32m<Reference Include="UnityEngine">[m
+[32m+[m	[32m  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>[m
+[32m+[m	[32m</Reference>[m
+[32m+[m	[32m<Reference Include="UnityEditor">[m
+[32m+[m	[32m  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>[m
+[32m+[m	[32m</Reference>[m
+[32m+[m[32m  </ItemGroup>[m
+[32m+[m[32m  <ItemGroup>[m
+[32m+[m[32m     <Compile Include="Assets\Tools\TerrainToolkit\Editor\TerrainToolkitEditor.cs" />[m
+[32m+[m[32m     <Compile Include="Assets\Tools\UltimateRagdollFree\Scripts\Editor\U_r_g_freewindow.cs" />[m
+[32m+[m[32m     <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />[m
+[32m+[m[32m     <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />[m
+[32m+[m[32m     <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />[m
+[32m+[m[32m     <None Include="Assets\Tools\TerrainToolkit\Read me.txt" />[m
+[32m+[m[32m     <None Include="Assets\Tools\UltimateRagdollFree\__U_r_g_README.txt" />[m
+[32m+[m[32m <Reference Include="Assembly-UnityScript-firstpass">[m
+[32m+[m[32m <HintPath>Library\ScriptAssemblies\Assembly-UnityScript-firstpass.dll</HintPath>[m
+[32m+[m[32m </Reference>[m
+[32m+[m[32m <Reference Include="Assembly-UnityScript">[m
+[32m+[m[32m <HintPath>Library\ScriptAssemblies\Assembly-UnityScript.dll</HintPath>[m
+[32m+[m[32m </Reference>[m
+[32m+[m[32m <Reference Include="U_r_g_freelib">[m
+[32m+[m[32m <HintPath>Assets\Tools\UltimateRagdollFree\Scripts\Editor\U_r_g_freelib.dll</HintPath>[m
+[32m+[m[32m </Reference>[m
+[32m+[m[32m  </ItemGroup>[m
+[32m+[m[32m  <ItemGroup>[m
+[32m+[m[32m    <ProjectReference Include="Assembly-CSharp-firstpass-vs.csproj">[m
+[32m+[m[32m      <Project>{BDA7723F-CFDF-5889-9DCC-D9EF3D369966}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>[m
+[32m+[m[32m    <ProjectReference Include="Assembly-CSharp-vs.csproj">[m
+[32m+[m[32m      <Project>{473AD4B1-D058-B10E-C42C-1F643926E492}</Project>      <Name>Assembly-CSharp-vs</Name>    </ProjectReference>[m
+[32m+[m[32m  </ItemGroup>[m
+[32m+[m[32m  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />[m
+[32m+[m[32m  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.[m[41m [m
+[32m+[m	[32m   Other similar extension points exist, see Microsoft.Common.targets.[m
+[32m+[m[32m  <Target Name="BeforeBuild">[m
+[32m+[m[32m  </Target>[m
+[32m+[m[32m  <Target Name="AfterBuild">[m
+[32m+[m[32m  </Target>[m
+[32m+[m[32m  -->[m
+[32m+[m[41m  [m
+[32m+[m[32m</Project>[m
+[1mdiff --git a/Assembly-CSharp-Editor.csproj b/Assembly-CSharp-Editor.csproj[m
+[1mnew file mode 100644[m
+[1mindex 0000000..6214889[m
+[1m--- /dev/null[m
+[1m+++ b/Assembly-CSharp-Editor.csproj[m
+[36m@@ -0,0 +1,77 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="utf-8"?>[m
+[32m+[m[32m<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">[m
+[32m+[m[32m  <PropertyGroup>[m
+[32m+[m	[32m<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>[m
+[32m+[m	[32m<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>[m
+[32m+[m	[32m<ProductVersion>10.0.20506</ProductVersion>[m
+[32m+[m	[32m<SchemaVersion>2.0</SchemaVersion>[m
+[32m+[m	[32m<ProjectGuid>{F33694F3-F925-E9F6-D0AC-51A55111A78A}</ProjectGuid>[m
+[32m+[m	[32m<OutputType>Library</OutputType>[m
+[32m+[m	[32m<AppDesignerFolder>Properties</AppDesignerFolder>[m
+[32m+[m	[32m<RootNamespace></RootNamespace>[m
+[32m+[m	[32m<AssemblyName>Assembly-CSharp-Editor</AssemblyName>[m
+[32m+[m	[32m<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>[m
+[32m+[m	[32m<FileAlignment>512</FileAlignment>[m
+[32m+[m[32m  </PropertyGroup>[m
+[32m+[m[32m  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">[m
+[32m+[m	[32m<DebugSymbols>true</DebugSymbols>[m
+[32m+[m	[32m<DebugType>full</DebugType>[m
+[32m+[m	[32m<Optimize>false</Optimize>[m
+[32m+[m	[32m<OutputPath>Temp\bin\Debug\</OutputPath>[m
+[32m+[m	[32m<DefineConstants>DEBUG;TRACE;UNITY_3_5_5;UNITY_3_5;UNITY_EDITOR;ENABLE_PROFILER;UNITY_STANDALONE_WIN;ENABLE_GENERICS;ENABLE_DUCK_TYPING;ENABLE_TERRAIN;ENABLE_MOVIES;ENABLE_WEBCAM;ENABLE_MICROPHONE;ENABLE_NETWORK;ENABLE_CLOTH;ENABLE_WWW;ENABLE_SUBSTANCE</DefineConstants>[m
+[32m+[m	[32m<ErrorReport>prompt</ErrorReport>[m
+[32m+[m	[32m<WarningLevel>4</WarningLevel>[m
+[32m+[m	[32m<NoWarn>0169</NoWarn>[m
+[32m+[m[32m  </PropertyGroup>[m
+[32m+[m[32m  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">[m
+[32m+[m	[32m<DebugType>pdbonly</DebugType>[m
+[32m+[m	[32m<Optimize>true</Optimize>[m
+[32m+[m	[32m<OutputPath>Temp\bin\Release\</OutputPath>[m
+[32m+[m	[32m<DefineConstants>TRACE</DefineConstants>[m
+[32m+[m	[32m<ErrorReport>prompt</ErrorReport>[m
+[32m+[m	[32m<WarningLevel>4</WarningLevel>[m
+[32m+[m	[32m<NoWarn>0169</NoWarn>[m
+[32m+[m[32m  </PropertyGroup>[m
+[32m+[m[32m  <ItemGroup>[m
+[32m+[m	[32m<Reference Include="System" />[m
+[32m+[m[32m    <Reference Include="System.XML" />[m
+[32m+[m	[32m<Reference Include="System.Core" />[m
+[32m+[m	[32m<Reference Include="UnityEngine">[m
+[32m+[m	[32m  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>[m
+[32m+[m	[32m</Reference>[m
+[32m+[m	[32m<Reference Include="UnityEditor">[m
+[32m+[m	[32m  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>[m
+[32m+[m	[32m</Reference>[m
+[32m+[m[32m  </ItemGroup>[m
+[32m+[m[32m  <ItemGroup>[m
+[32m+[m[32m     <Compile Include="Assets\Tools\TerrainToolkit\Editor\TerrainToolkitEditor.cs" />[m
+[32m+[m[32m     <Compile Include="Assets\Tools\UltimateRagdollFree\Scripts\Editor\U_r_g_freewindow.cs" />[m
+[32m+[m[32m     <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />[m
+[32m+[m[32m     <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />[m
+[32m+[m[32m     <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />[m
+[32m+[m[32m     <None Include="Assets\Tools\TerrainToolkit\Read me.txt" />[m
+[32m+[m[32m     <None Include="Assets\Tools\UltimateRagdollFree\__U_r_g_README.txt" />[m
+[32m+[m[32m <Reference Include="U_r_g_freelib">[m
+[32m+[m[32m <HintPath>Assets\Tools\UltimateRagdollFree\Scripts\Editor\U_r_g_freelib.dll</HintPath>[m
+[32m+[m[32m </Reference>[m
+[32m+[m[32m  </ItemGroup>[m
+[32m+[m[32m  <ItemGroup>[m
+[32m+[m[32m    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">[m
+[32m+[m[32m      <Project>{BDA7723F-CFDF-5889-9DCC-D9EF3D369966}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>[m
+[32m+[m[32m    <ProjectReference Include="Assembly-UnityScript-firstpass.unityproj">[m
+[32m+[m[32m      <Project>{CAC083C4-7828-09B3-10AB-0D9261C5D45E}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>[m
+[32m+[m[32m    <ProjectReference Include="Assembly-CSharp.csproj">[m
+[32m+[m[32m      <Project>{473AD4B1-D058-B10E-C42C-1F643926E492}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>[m
+[32m+[m[32m    <ProjectReference Include="Assembly-UnityScript.unityproj">[m
+[32m+[m[32m      <Project>{62978678-22A1-6CE6-422E-40560D26D52F}</Project>      <Name>Assembly-UnityScript</Name>    </ProjectReference>[m
+[32m+[m[32m  </ItemGroup>[m
+[32m+[m[32m  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />[m
+[32m+[m[32m  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.[m[41m [m
+[32m+[m	[32m   Other similar extension points exist, see Microsoft.Common.targets.[m
+[32m+[m[32m  <Target Name="BeforeBuild">[m
+[32m+[m[32m  </Target>[m
+[32m+[m[32m  <Target Name="AfterBuild">[m
+[32m+[m[32m  </Target>[m
+[32m+[m[32m  -->[m
+[32m+[m[41m  [m
+[32m+[m[32m</Project>[m
+[1mdiff --git a/Assembly-CSharp-Editor.pidb b/Assembly-CSharp-Editor.pidb[m
+[1mnew file mode 100644[m
+[1mindex 0000000..f4b9296[m
+Binary files /dev/null and b/Assembly-CSharp-Editor.pidb differ
+[1mdiff --git a/Assembly-CSharp-firstpass-vs.csproj b/Assembly-CSharp-firstpass-vs.csproj[m
+[1mnew file mode 100644[m
+[1mindex 0000000..0d6b7d5[m
+[1m--- /dev/null[m
+[1m+++ b/Assembly-CSharp-firstpass-vs.csproj[m
+[36m@@ -0,0 +1,64 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="utf-8"?>[m
+[32m+[m[32m<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">[m
+[32m+[m[32m  <PropertyGroup>[m
+[32m+[m	[32m<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>[m
+[32m+[m	[32m<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>[m
+[32m+[m	[32m<ProductVersion>10.0.20506</ProductVersion>[m
+[32m+[m	[32m<SchemaVersion>2.0</SchemaVersion>[m
+[32m+[m	[32m<ProjectGuid>{BDA7723F-CFDF-5889-9DCC-D9EF3D369966}</ProjectGuid>[m
+[32m+[m	[32m<OutputType>Library</OutputType>[m
+[32m+[m	[32m<AppDesignerFolder>Properties</AppDesignerFolder>[m
+[32m+[m	[32m<RootNamespace></RootNamespace>[m
+[32m+[m	[32m<AssemblyName>Assembly-CSharp-firstpass</AssemblyName>[m
+[32m+[m	[32m<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>[m
+[32m+[m	[32m<FileAlignment>512</FileAlignment>[m
+[32m+[m[32m  </PropertyGroup>[m
+[32m+[m[32m  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">[m
+[32m+[m	[32m<DebugSymbols>true</DebugSymbols>[m
+[32m+[m	[32m<DebugType>full</DebugType>[m
+[32m+[m	[32m<Optimize>false</Optimize>[m
+[32m+[m	[32m<OutputPath>Temp\bin\Debug\</OutputPath>[m
+[32m+[m	[32m<DefineConstants>DEBUG;TRACE;UNITY_3_5_5;UNITY_3_5;UNITY_EDITOR;ENABLE_PROFILER;UNITY_STANDALONE_WIN;ENABLE_GENERICS;ENABLE_DUCK_TYPING;ENABLE_TERRAIN;ENABLE_MOVIES;ENABLE_WEBCAM;ENABLE_MICROPHONE;ENABLE_NETWORK;ENABLE_CLOTH;ENABLE_WWW;ENABLE_SUBSTANCE</DefineConstants>[m
+[32m+[m	[32m<ErrorReport>prompt</ErrorReport>[m
+[32m+[m	[32m<WarningLevel>4</WarningLevel>[m
+[32m+[m	[32m<NoWarn>0169</NoWarn>[m
+[32m+[m[32m  </PropertyGroup>[m
+[32m+[m[32m  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">[m
+[32m+[m	[32m<DebugType>pdbonly</DebugType>[m
+[32m+[m	[32m<Optimize>true</Optimize>[m
+[32m+[m	[32m<OutputPath>Temp\bin\Release\</OutputPath>[m
+[32m+[m	[32m<DefineConstants>TRACE</DefineConstants>[m
+[32m+[m	[32m<ErrorReport>prompt</ErrorReport>[m
+[32m+[m	[32m<WarningLevel>4</WarningLevel>[m
+[32m+[m	[32m<NoWarn>0169</NoWarn>[m
+[32m+[m[32m  </PropertyGroup>[m
+[32m+[m[32m  <ItemGroup>[m
+[32m+[m	[32m<Reference Include="System" />[m
+[32m+[m[32m    <Reference Include="System.XML" />[m
+[32m+[m	[32m<Reference Include="System.Core" />[m
+[32m+[m	[32m<Reference Include="UnityEngine">[m
+[32m+[m	[32m  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>[m
+[32m+[m	[32m</Reference>[m
+[32m+[m	[32m<Reference Include="UnityEditor">[m
+[32m+[m	[32m  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>[m
+[32m+[m	[32m</Reference>[m
+[32m+[m[32m  </ItemGroup>[m
+[32m+[m[32m  <ItemGroup>[m
+[32m+[m[32m     <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />[m
+[32m+[m[32m     <Compile Include="Assets\Standard Assets\Water (Basic)\Sources\Scripts\WaterSimple.cs" />[m
+[32m+[m[32m     <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />[m
+[32m+[m[32m     <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />[m
+[32m+[m[32m     <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />[m
+[32m+[m[32m     <None Include="Assets\Tools\TerrainToolkit\Read me.txt" />[m
+[32m+[m[32m     <None Include="Assets\Tools\UltimateRagdollFree\__U_r_g_README.txt" />[m
+[32m+[m[32m  </ItemGroup>[m
+[32m+[m[32m  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />[m
+[32m+[m[32m  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.[m[41m [m
+[32m+[m	[32m   Other similar extension points exist, see Microsoft.Common.targets.[m
+[32m+[m[32m  <Target Name="BeforeBuild">[m
+[32m+[m[32m  </Target>[m
+[32m+[m[32m  <Target Name="AfterBuild">[m
+[32m+[m[32m  </Target>[m
+[32m+[m[32m  -->[m
+[32m+[m[41m  [m
+[32m+[m[32m</Project>[m
+[1mdiff --git a/Assembly-CSharp-firstpass.csproj b/Assembly-CSharp-firstpass.csproj[m
+[1mnew file mode 100644[m
+[1mindex 0000000..0d6b7d5[m
+[1m--- /dev/null[m
+[1m+++ b/Assembly-CSharp-firstpass.csproj[m
+[36m@@ -0,0 +1,64 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="utf-8"?>[m
+[32m+[m[32m<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">[m
+[32m+[m[32m  <PropertyGroup>[m
+[32m+[m	[32m<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>[m
+[32m+[m	[32m<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>[m
+[32m+[m	[32m<ProductVersion>10.0.20506</ProductVersion>[m
+[32m+[m	[32m<SchemaVersion>2.0</SchemaVersion>[m
+[32m+[m	[32m<ProjectGuid>{BDA7723F-CFDF-5889-9DCC-D9EF3D369966}</ProjectGuid>[m
+[32m+[m	[32m<OutputType>Library</OutputType>[m
+[32m+[m	[32m<AppDesignerFolder>Properties</AppDesignerFolder>[m
+[32m+[m	[32m<RootNamespace></RootNamespace>[m
+[32m+[m	[32m<AssemblyName>Assembly-CSharp-firstpass</AssemblyName>[m
+[32m+[m	[32m<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>[m
+[32m+[m	[32m<FileAlignment>512</FileAlignment>[m
+[32m+[m[32m  </PropertyGroup>[m
+[32m+[m[32m  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">[m
+[32m+[m	[32m<DebugSymbols>true</DebugSymbols>[m
+[32m+[m	[32m<DebugType>full</DebugType>[m
+[32m+[m	[32m<Optimize>false</Optimize>[m
+[32m+[m	[32m<OutputPath>Temp\bin\Debug\</OutputPath>[m
+[32m+[m	[32m<DefineConstants>DEBUG;TRACE;UNITY_3_5_5;UNITY_3_5;UNITY_EDITOR;ENABLE_PROFILER;UNITY_STANDALONE_WIN;ENABLE_GENERICS;ENABLE_DUCK_TYPING;ENABLE_TERRAIN;ENABLE_MOVIES;ENABLE_WEBCAM;ENABLE_MICROPHONE;ENABLE_NETWORK;ENABLE_CLOTH;ENABLE_WWW;ENABLE_SUBSTANCE</DefineConstants>[m
+[32m+[m	[32m<ErrorReport>prompt</ErrorReport>[m
+[32m+[m	[32m<WarningLevel>4</WarningLevel>[m
+[32m+[m	[32m<NoWarn>0169</NoWarn>[m
+[32m+[m[32m  </PropertyGroup>[m
+[32m+[m[32m  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">[m
+[32m+[m	[32m<DebugType>pdbonly</DebugType>[m
+[32m+[m	[32m<Optimize>true</Optimize>[m
+[32m+[m	[32m<OutputPath>Temp\bin\Release\</OutputPath>[m
+[32m+[m	[32m<DefineConstants>TRACE</DefineConstants>[m
+[32m+[m	[32m<ErrorReport>prompt</ErrorReport>[m
+[32m+[m	[32m<WarningLevel>4</WarningLevel>[m
+[32m+[m	[32m<NoWarn>0169</NoWarn>[m
+[32m+[m[32m  </PropertyGroup>[m
+[32m+[m[32m  <ItemGroup>[m
+[32m+[m	[32m<Reference Include="System" />[m
+[32m+[m[32m    <Reference Include="System.XML" />[m
+[32m+[m	[32m<Reference Include="System.Core" />[m
+[32m+[m	[32m<Reference Include="UnityEngine">[m
+[32m+[m	[32m  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>[m
+[32m+[m	[32m</Reference>[m
+[32m+[m	[32m<Reference Include="UnityEditor">[m
+[32m+[m	[32m  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>[m
+[32m+[m	[32m</Reference>[m
+[32m+[m[32m  </ItemGroup>[m
+[32m+[m[32m  <ItemGroup>[m
+[32m+[m[32m     <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />[m
+[32m+[m[32m     <Compile Include="Assets\Standard Assets\Water (Basic)\Sources\Scripts\WaterSimple.cs" />[m
+[32m+[m[32m     <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />[m
+[32m+[m[32m     <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />[m
+[32m+[m[32m     <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />[m
+[32m+[m[32m     <None Include="Assets\Tools\TerrainToolkit\Read me.txt" />[m
+[32m+[m[32m     <None Include="Assets\Tools\UltimateRagdollFree\__U_r_g_README.txt" />[m
+[32m+[m[32m  </ItemGroup>[m
+[32m+[m[32m  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />[m
+[32m+[m[32m  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.[m[41m [m
+[32m+[m	[32m   Other similar extension points exist, see Microsoft.Common.targets.[m
+[32m+[m[32m  <Target Name="BeforeBuild">[m
+[32m+[m[32m  </Target>[m
+[32m+[m[32m  <Target Name="AfterBuild">[m
+[32m+[m[32m  </Target>[m
+[32m+[m[32m  -->[m
+[32m+[m[41m  [m
+[32m+[m[32m</Project>[m
+[1mdiff --git a/Assembly-CSharp-firstpass.pidb b/Assembly-CSharp-firstpass.pidb[m
+[1mnew file mode 100644[m
+[1mindex 0000000..eb004cf[m
+Binary files /dev/null and b/Assembly-CSharp-firstpass.pidb differ
+[1mdiff --git a/Assembly-CSharp-vs.csproj b/Assembly-CSharp-vs.csproj[m
+[1mnew file mode 100644[m
+[1mindex 0000000..5bb3100[m
+[1m--- /dev/null[m
+[1m+++ b/Assembly-CSharp-vs.csproj[m
+[36m@@ -0,0 +1,83 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="utf-8"?>[m
+[32m+[m[32m<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">[m
+[32m+[m[32m  <PropertyGroup>[m
+[32m+[m	[32m<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>[m
+[32m+[m	[32m<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>[m
+[32m+[m	[32m<ProductVersion>10.0.20506</ProductVersion>[m
+[32m+[m	[32m<SchemaVersion>2.0</SchemaVersion>[m
+[32m+[m	[32m<ProjectGuid>{473AD4B1-D058-B10E-C42C-1F643926E492}</ProjectGuid>[m
+[32m+[m	[32m<OutputType>Library</OutputType>[m
+[32m+[m	[32m<AppDesignerFolder>Properties</AppDesignerFolder>[m
+[32m+[m	[32m<RootNamespace></RootNamespace>[m
+[32m+[m	[32m<AssemblyName>Assembly-CSharp</AssemblyName>[m
+[32m+[m	[32m<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>[m
+[32m+[m	[32m<FileAlignment>512</FileAlignment>[m
+[32m+[m[32m  </PropertyGroup>[m
+[32m+[m[32m  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">[m
+[32m+[m	[32m<DebugSymbols>true</DebugSymbols>[m
+[32m+[m	[32m<DebugType>full</DebugType>[m
+[32m+[m	[32m<Optimize>false</Optimize>[m
+[32m+[m	[32m<OutputPath>Temp\bin\Debug\</OutputPath>[m
+[32m+[m	[32m<DefineConstants>DEBUG;TRACE;UNITY_3_5_5;UNITY_3_5;UNITY_EDITOR;ENABLE_PROFILER;UNITY_STANDALONE_WIN;ENABLE_GENERICS;ENABLE_DUCK_TYPING;ENABLE_TERRAIN;ENABLE_MOVIES;ENABLE_WEBCAM;ENABLE_MICROPHONE;ENABLE_NETWORK;ENABLE_CLOTH;ENABLE_WWW;ENABLE_SUBSTANCE</DefineConstants>[m
+[32m+[m	[32m<ErrorReport>prompt</ErrorReport>[m
+[32m+[m	[32m<WarningLevel>4</WarningLevel>[m
+[32m+[m	[32m<NoWarn>0169</NoWarn>[m
+[32m+[m[32m  </PropertyGroup>[m
+[32m+[m[32m  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">[m
+[32m+[m	[32m<DebugType>pdbonly</DebugType>[m
+[32m+[m	[32m<Optimize>true</Optimize>[m
+[32m+[m	[32m<OutputPath>Temp\bin\Release\</OutputPath>[m
+[32m+[m	[32m<DefineConstants>TRACE</DefineConstants>[m
+[32m+[m	[32m<ErrorReport>prompt</ErrorReport>[m
+[32m+[m	[32m<WarningLevel>4</WarningLevel>[m
+[32m+[m	[32m<NoWarn>0169</NoWarn>[m
+[32m+[m[32m  </PropertyGroup>[m
+[32m+[m[32m  <ItemGroup>[m
+[32m+[m	[32m<Reference Include="System" />[m
+[32m+[m[32m    <Reference Include="System.XML" />[m
+[32m+[m	[32m<Reference Include="System.Core" />[m
+[32m+[m	[32m<Reference Include="UnityEngine">[m
+[32m+[m	[32m  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>[m
+[32m+[m	[32m</Reference>[m
+[32m+[m	[32m<Reference Include="UnityEditor">[m
+[32m+[m	[32m  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>[m
+[32m+[m	[32m</Reference>[m
+[32m+[m[32m  </ItemGroup>[m
+[32m+[m[32m  <ItemGroup>[m
+[32m+[m[32m     <Compile Include="Assets\Tools\TerrainToolkit\TerrainToolkit.cs" />[m
+[32m+[m[32m     <Compile Include="Assets\Tools\UltimateRagdollFree\Scripts\clsactorcontroller.cs" />[m
+[32m+[m[32m     <Compile Include="Assets\Tools\UltimateRagdollFree\Scripts\clscannon.cs" />[m
+[32m+[m[32m     <Compile Include="Assets\Tools\UltimateRagdollFree\Scripts\clscannonball.cs" />[m
+[32m+[m[32m     <Compile Include="Assets\Tools\UltimateRagdollFree\Scripts\clskinetify.cs" />[m
+[32m+[m[32m     <Compile Include="Assets\Tools\UltimateRagdollFree\Scripts\clsragdollhelperfree.cs" />[m
+[32m+[m[32m     <Compile Include="Assets\Tools\UltimateRagdollFree\Scripts\clsragdollifyfree.cs" />[m
+[32m+[m[32m     <Compile Include="Assets\Tools\UltimateRagdollFree\Scripts\clsragdollimbifier.cs" />[m
+[32m+[m[32m     <Compile Include="Assets\Tools\UltimateRagdollFree\Scripts\clstimemanager.cs" />[m
+[32m+[m[32m     <Compile Include="Assets\Tools\Ultimat
