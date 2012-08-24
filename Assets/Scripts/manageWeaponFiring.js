@@ -10,7 +10,7 @@ private var respawnTimer : RespawnTimer;
 function Start () {
 	inventory = GetComponent(loadout);
 	weapon = getInventoryWeapon(0);
-	health = transform.parent.GetComponent(healthManager);
+	health = GetComponent(healthManager);
 	respawnTimer = new RespawnTimer(4);
 	game = GameObject.Find("Map").GetComponent(gameHandler);
 	toggleControl(true);

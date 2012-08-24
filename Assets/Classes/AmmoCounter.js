@@ -9,7 +9,7 @@ class AmmoCounter {
 	function AmmoCounter(startingAmmo : int) {
 		ammo = startingAmmo;
 		ammoIncrement = ammo;
-		isInfinite = (startingAmmo == 0 || Global.infiniteAmmo);
+		isInfinite = startingAmmo == 0;
 	}
 	
 	function takeShot() {
