@@ -4,8 +4,6 @@ var colors : Color[];
 var images : Texture[];
 var skin : GUISkin;
 
-static var selectedGamemode : GameMode;
-
 function Start() {
 	GUIHandler.loadColors(colors);
 	GUIHandler.loadImages(images);
@@ -21,11 +19,11 @@ function OnGUI() {
 	GUIHandler.msg(Rect(15,15 + GUIHandler.logo.height,GUIHandler.logo.width - 30,Screen.height - 15 - GUIHandler.logo.height),"Welcome to fShargle Warfare BETA!\nMade by the SnorriDev Team.");
 	GUI.DrawTexture(Rect(0, 0,GUIHandler.logo.width,GUIHandler.logo.height),GUIHandler.logo);
 	if (drawMenuOption("Survival Beta on Dam",0)) {
-		selectedGamemode = new SurvivalMode();
+		Global.selectedGamemode = new SurvivalMode();
 		Application.LoadLevel("Dam");
 	}
 	if (drawMenuOption("Survival Beta on Bridge",1)) {
-		selectedGamemode = new SurvivalMode();
+		Global.selectedGamemode = new SurvivalMode();
 		Application.LoadLevel("Bridge");
 	}
 	if (drawMenuOption("Quit",2))

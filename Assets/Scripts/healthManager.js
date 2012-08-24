@@ -26,10 +26,12 @@ function heal(amount : int) {
 }
 
 function isAlive() {
+	if (transform.gameObject.name.Substring(0,6) == "Player" && Global.godMode) return true;
 	return health > 0;
 }
 
 function isAliveUpdate() {
+	if (transform.gameObject.name.Substring(0,6) == "Player" && Global.godMode) return true;
 	wasAlive = health > 0;
 	return health > 0;
 }

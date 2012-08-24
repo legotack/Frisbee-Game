@@ -8,7 +8,7 @@ var gameOverTime : float;
 var gamemode : GameMode;
 
 function Start() {
-	gamemode = mainMenu.selectedGamemode;
+	gamemode = Global.selectedGamemode;
 	gamemode.setMap(this);
 	gamemode.setup();
 	gameOverTime = 0;

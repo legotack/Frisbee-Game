@@ -2,7 +2,7 @@
 
 class SurvivalMode extends GameMode {
 
-	private var wave : float;
+	private var wave : int;
 	private var reinforcementsToBeSpawned : int;
 	private var reinforcementTimer : ReloadTimer;
 	private var nextWaveTimer : ReloadTimer;
@@ -12,7 +12,7 @@ class SurvivalMode extends GameMode {
 	}
 	
 	function setup() {
-		wave = 0;
+		wave = Global.waveStart;
 		reinforcementTimer = new ReloadTimer(2);
 		nextWaveTimer = new ReloadTimer(20);
 		super.setup();
@@ -48,7 +48,7 @@ class SurvivalMode extends GameMode {
 	function spawnWave() {
 		wave += 1;
 		enemies = new Array();
-		player.FindChild("Controller").GetComponent(healthManager).heal(100);
+		player.GetComponent(healthManager).heal(100);
 		var configuration : Array = autoSpawnPoint.getBestConfiguration(player,2 + 3 * wave);
 		for (var i : int in configuration[1])
 			enemies.Add(spawnEnemy(autoSpawnPoint.spawnPoints[i]));

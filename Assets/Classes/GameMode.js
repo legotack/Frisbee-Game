@@ -66,7 +66,7 @@ class GameMode {
 	function drawResultBox(text : String) { //TODO categories and stuff, table
 		GUIHandler.box(Rect(200,200,Screen.width - 400,Screen.height - 400),text);
 		if (GUIHandler.button(215,Screen.height - 245,50,30,"Retry")) {
-			mainMenu.selectedGamemode = restartGame();
+			Global.selectedGamemode = restartGame();
 			Application.LoadLevel(Application.loadedLevelName);
 		}
 		if (GUIHandler.button(Screen.width - 265,Screen.height - 245,50,30,"Quit"))
