@@ -43,7 +43,8 @@ function OnCollisionEnter(collision : Collision) {
 		collision.collider.GetComponent(damageListener).getShot(damage,shooter);
 	if (combustTo) {
 		var c : Transform = Instantiate(combustTo,transform.position,transform.rotation);
-		c.GetComponent(fireDamageDealer).creator = transform;
+		c.GetComponentInChildren(fireDamageDealer).creator = transform;
+		c.rigidbody.velocity = rigidbody.velocity / 2;
 		Destroy(gameObject);
 	}
 }
