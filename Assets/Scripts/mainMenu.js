@@ -28,7 +28,11 @@ function OnGUI() {
 		selectedGamemode = new SurvivalMode();
 		Application.LoadLevel("Bridge");
 	}
-	if (drawMenuOption("Quit",2))
+	if (drawMenuOption("Survival Beta on Carlisle",2)) {
+		selectedGamemode = new SurvivalMode();
+		Application.LoadLevel("Carlisle");
+	}
+	if (drawMenuOption("Quit",3))
 		Application.Quit();
 }
 

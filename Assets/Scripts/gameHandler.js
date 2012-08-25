@@ -12,6 +12,9 @@ function Start() {
 	gamemode.setMap(this);
 	gamemode.setup();
 	gameOverTime = 0;
+	
+	Physics.IgnoreLayerCollision(9,10);
+	Physics.IgnoreLayerCollision(10,11);
 }
 
 function Update() {

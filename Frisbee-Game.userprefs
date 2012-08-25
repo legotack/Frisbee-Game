@@ -1,37 +1,16 @@
-<<<<<<< HEAD
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\frisbeeMotion.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\gameHandler.js">
     <Files>
-      <File FileName="Assets\Scripts\frisbeeMotion.js" Line="51" Column="2" />
-      <File FileName="Assets\vehicle.js" Line="11" Column="14" />
-      <File FileName="Assets\Scripts\healthAI.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\manageWeaponFiring.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\fireDamageDealer.js" Line="1" Column="1" />
+      <File FileName="Assets\Classes\GUIHandler.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\mainMenu.js" Line="35" Column="29" />
+      <File FileName="Assets\Classes\SurvivalMode.js" Line="67" Column="33" />
+      <File FileName="Assets\Classes\Global.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\gameHandler.js" Line="17" Column="38" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-=======
-﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\manageWeaponFiring.js">
-    <Files>
-      <File FileName="Assets\Classes\Global.js" Line="10" Column="23" />
-      <File FileName="Assets\Scripts\healthAI.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\manageWeaponFiring.js" Line="24" Column="106" />
-      <File FileName="Assets\Scripts\fireDamageDealer.js" Line="1" Column="1" />
-      <File FileName="Assets\vehicle.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\forcetileMotion.js" Line="37" Column="28" />
-      <File FileName="Assets\Scripts\noDoubleJump.js" Line="10" Column="40" />
-      <File FileName="Assets\Scripts\frisbeeMotion.js" Line="26" Column="1" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
->>>>>>> b8929c0fef78ffa14f8a5cb242c8cd14730c4e83
 </Properties>
