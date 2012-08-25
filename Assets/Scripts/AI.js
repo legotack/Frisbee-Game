@@ -75,7 +75,7 @@ function AttackPlayer () {
 	while (true) {
 		if (CanSeeTarget ()) {
 			// Target is dead - stop hunting
-			if (target == null || ! target.FindChild("Controller").GetComponent(healthManager).isAlive())
+			if (target == null || ! target.GetComponent(healthManager).isAlive())
 				return;
 
 			// Target is too far away - give up	
