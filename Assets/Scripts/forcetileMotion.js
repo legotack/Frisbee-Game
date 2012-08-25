@@ -22,15 +22,17 @@ class forcetileMotion extends frisbeeMotion {
 		}
 		else {
 			enemyFrisbee = collision.rigidbody;
-			dir = transform.rigidbody.velocity;
-			dir.y = 0;
-			enemyFrisbee.AddForce(dir.normalized * force / enemyFrisbee.mass);
+			if (enemyFrisbee != null) {
+				dir = transform.rigidbody.velocity;
+				dir.y = 0;
+				enemyFrisbee.AddForce(dir.normalized * force / enemyFrisbee.mass);
+			}
 		}
 	}
 	
 	function FixedUpdate() {
 		super.FixedUpdate();
-		if (enemyPushing) {
+		if (enemyPushing && enemyController != null) {
 			if (impactForce.magnitude > 0.2) enemyController.Move(impactForce * Time.deltaTime);
 			impactForce = Vector3.Lerp(impactForce, Vector3.zero, 0.1*Time.deltaTime);
 			
