@@ -11,6 +11,7 @@ var frisbeePowerupTime : float;
 var startingAmmo : float;
 
 var combustTo : Transform;
+var particleEffect : Transform;
 
 var shooter : Transform;
 
@@ -34,7 +35,7 @@ function FixedUpdate () {
 	if (lift == 0)
 		timeBeforeDespawn -= Time.deltaTime;
 	if (timeBeforeDespawn < 0)
-		Destroy(gameObject);
+		kill();
 }
 
 function OnCollisionEnter(collision : Collision) {
@@ -45,6 +46,11 @@ function OnCollisionEnter(collision : Collision) {
 		var c : Transform = Instantiate(combustTo,transform.position,transform.rotation);
 		c.GetComponentInChildren(fireDamageDealer).creator = transform;
 		c.rigidbody.velocity = rigidbody.velocity / 2;
-		Destroy(gameObject);
+		kill();
 	}
+}
+
+function kill() {
+	Instantiate(particleEffect,transform.position,transform.rotation);
+	Destroy(gameObject);
 }
