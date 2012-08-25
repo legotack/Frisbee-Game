@@ -6,6 +6,9 @@ private var timeBeforeNextJump : float;
 private var couldJump : boolean;
 
 function Start() {
+	if (Global.madHops) {
+		GetComponent(CharacterMotor).jumping.baseHeight = 50;
+	}
 	timeBeforeNextJump = 0;
 	couldJump = true;
 }

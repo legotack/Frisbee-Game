@@ -21,7 +21,7 @@ function Update () {
 	if (health.isAliveUpdate()) {
 		if (Input.GetButtonDown("Fire1") && weapon.reloadTimer.canShoot() && weapon.ammoCounter.hasEnoughAmmo())
 			shoot(weapon.weapon);
-		if (Input.GetButtonDown("Fire2") && weapon.reloadTimer.canShoot())
+		if (Input.GetButtonDown("Fire2") && weapon.reloadTimer.canShoot() && weapon.ammoCounter.hasEnoughAmmo())
 			weapon.powerupTimer.setOn(true);
 		if (Input.GetButton("Fire2") && weapon.reloadTimer.canShoot() && weapon.powerupTimer.activated)
 			weapon.powerupTimer.update();
