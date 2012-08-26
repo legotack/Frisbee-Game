@@ -69,6 +69,7 @@
      <Compile Include="Assets\Classes\Timer.js" />
      <Compile Include="Assets\Scripts\AI.js" />
      <Compile Include="Assets\Scripts\autoSpawnPoint.js" />
+     <Compile Include="Assets\Scripts\burner.js" />
      <Compile Include="Assets\Scripts\damageListener.js" />
      <Compile Include="Assets\Scripts\fireDamageDealer.js" />
      <Compile Include="Assets\Scripts\forcetileMotion.js" />
@@ -81,6 +82,7 @@
      <Compile Include="Assets\Scripts\manageWeaponFiring.js" />
      <Compile Include="Assets\Scripts\noDoubleJump.js" />
      <Compile Include="Assets\Scripts\timedObjectDestructor.js" />
+     <Compile Include="Assets\Scripts\treeBurning.js" />
      <Compile Include="Assets\Tools\TerrainToolkit\TerrainToolkitEnums.js" />
      <Compile Include="Assets\vehicle.js" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />

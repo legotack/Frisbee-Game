@@ -37,5 +37,6 @@ function OnGUI() {
 }
 
 function endGame(hasWon : boolean) {
+	Screen.showCursor = true;
 	gamemode.endGame(hasWon);
 }
