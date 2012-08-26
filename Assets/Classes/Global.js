@@ -5,7 +5,7 @@
 */
 
 static class Global {
-	var godMode : boolean = true;
+	var godMode : boolean = false;
 	var waveStart : int = 1;
 	var infiniteAmmo : boolean = false;
 	var madHops : boolean = true;
