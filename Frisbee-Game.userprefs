@@ -2,12 +2,20 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\frisbeeMotion.js">
     <Files>
+<<<<<<< HEAD
       <File FileName="Assets\Scripts\frisbeeMotion.js" Line="14" Column="3" />
+=======
+      <File FileName="Assets\Scripts\frisbeeMotion.js" Line="14" Column="1" />
+>>>>>>> vehicles_and_tree_collider
       <File FileName="Assets\Classes\GUIHandler.js" Line="1" Column="1" />
       <File FileName="Assets\Scripts\mainMenu.js" Line="1" Column="1" />
       <File FileName="Assets\Classes\SurvivalMode.js" Line="1" Column="1" />
       <File FileName="Assets\Classes\Global.js" Line="1" Column="1" />
+<<<<<<< HEAD
       <File FileName="Assets\Scripts\gameHandler.js" Line="22" Column="2" />
+=======
+      <File FileName="Assets\Scripts\gameHandler.js" Line="28" Column="33" />
+>>>>>>> vehicles_and_tree_collider
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
