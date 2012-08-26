@@ -74,7 +74,7 @@ class SurvivalMode extends GameMode {
 	function drawEndGameScreen() {
 		clearAllEnemies();
 		Debug.Log("end game screen");
-		drawResultBox("You survived " + wave + " rounds");
+		drawResultBox("You survived " + (wave - 1) + " rounds");
 	}
 	
 	function restartGame() {
