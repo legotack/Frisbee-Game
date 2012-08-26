@@ -15,6 +15,8 @@ function Start() {
 	
 	Physics.IgnoreLayerCollision(9,10);
 	Physics.IgnoreLayerCollision(10,11);
+	
+	Screen.showCursor = false;
 }
 
 function Update() {
