@@ -6,6 +6,6 @@ var frontLeft : WheelCollider;
 var frontRight : WheelCollider;
 
 function Update() {
-	frontLeft.motorTorque = 600;
-	frontRight.motorTorque = 600;
+	backLeft.motorTorque = 600;
+	backRight.motorTorque = 600;
 }
