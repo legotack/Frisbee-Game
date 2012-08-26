@@ -11,7 +11,6 @@ var frisbeePowerupTime : float;
 var startingAmmo : float;
 
 var combustTo : Transform;
-var particleEffect : Transform;
 
 var shooter : Transform;
 
@@ -51,6 +50,6 @@ function OnCollisionEnter(collision : Collision) {
 }
 
 function kill() {
-	Instantiate(particleEffect,transform.position,transform.rotation);
+	//Instantiate(particleEffect,transform.position,transform.rotation);
 	Destroy(gameObject);
 }
