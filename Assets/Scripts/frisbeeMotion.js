@@ -11,10 +11,6 @@ var frisbeePowerupTime : float;
 var startingAmmo : float;
 
 var combustTo : Transform;
-<<<<<<< HEAD
-//var particleEffect : Transform;
-=======
->>>>>>> vehicles_and_tree_collider
 
 var shooter : Transform;
 
