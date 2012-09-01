@@ -10,9 +10,12 @@ var frontLeft : WheelCollider;
 var frontRight : WheelCollider;
 
 var isOccupied : boolean = false;
+var enterDistance : float;
 
 var player : Transform;
 var view : Transform;
+
+//merge everything related to entering/exiting into a PlayerInteractor class or something
 
 function Start() {
 }
@@ -30,8 +33,18 @@ function Update() {
 		if (Input.GetButtonDown("Enter"))
 			exit();
 	}
-	else if (Input.GetButtonDown("Enter"))
+	else if (Input.GetButtonDown("Enter") && canBeEntered())
 		enter();
+}
+
+function OnGUI() {
+	if (canBeEntered() && ! isOccupied)
+		GUIHandler.box(Rect(transform.Find("View").camera.WorldToScreenPoint(transform.position).x,transform.Find("View").camera.WorldToScreenPoint(transform.position).y,30,30),"Z");
+		
+}
+
+function canBeEntered() {
+	return Vector3.Distance(GameObject.Find("Player(Clone)").transform.position,transform.position) < enterDistance;
 }
 
 function enter() {
@@ -49,6 +62,11 @@ function toggle(flag : boolean) {
 	Debug.Log(camera);
 	view.GetComponent(Camera).enabled = flag;
 	view.GetComponent(AudioListener).enabled = flag;
-	Debug.Log("toggling");
 	GameObject.Find("Player(Clone)").transform.Find("Controller").GetComponent(manageWeaponFiring).setVehicleStatus(flag);
+}
+
+function OnControllerColliderHit(collision : ControllerColliderHit) {
+	Debug.Log("collision");
+	if (collision.transform.name != "Player(Clone)" && collision.transform.tag == "Player")
+		collision.collider.GetComponent(damageListener).getShot(100,gameObject.Find("Player(Clone)").transform);
 }
