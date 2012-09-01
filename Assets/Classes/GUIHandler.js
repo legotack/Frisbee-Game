@@ -55,16 +55,20 @@ static class GUIHandler {
 	}
 	
 	function progressBar(coeff : float, color : Color,inverted : boolean) {
-		GUI.color = fadedBarColor;
+		GUI.color = Color.black;
 		if (inverted) {
-			GUI.DrawTexture(Rect(Screen.width - 15 - monotone.width,Screen.height - 15 - monotone.height,monotone.width,monotone.height),monotone,ScaleMode.StretchToFill);
+			GUI.DrawTexture(Rect(Screen.width - 25 - monotone.width,Screen.height - 25 - monotone.height,monotone.width + 10,monotone.height + 10),monotone,ScaleMode.StretchToFill);
+			GUI.color = fadedBarColor;
+			GUI.DrawTexture(Rect(Screen.width - 20 - monotone.width,Screen.height - 20 - monotone.height,monotone.width,monotone.height),monotone,ScaleMode.StretchToFill);
 			GUI.color = color;
-			GUI.DrawTexture(Rect(Screen.width - 15 - monotone.width * coeff,Screen.height - 15 - monotone.height,monotone.width * coeff,monotone.height),monotone,ScaleMode.StretchToFill);
+			GUI.DrawTexture(Rect(Screen.width - 20 - monotone.width * coeff,Screen.height - 20 - monotone.height,monotone.width * coeff,monotone.height),monotone,ScaleMode.StretchToFill);
 		}
 		else {
-			GUI.DrawTexture(Rect(15,Screen.height - 15 - monotone.height,monotone.width,monotone.height),monotone,ScaleMode.StretchToFill);
+			GUI.DrawTexture(Rect(15,Screen.height - 25 - monotone.height,monotone.width + 10,monotone.height + 10),monotone,ScaleMode.StretchToFill);
+			GUI.color = fadedBarColor;
+			GUI.DrawTexture(Rect(20,Screen.height - 20 - monotone.height,monotone.width,monotone.height),monotone,ScaleMode.StretchToFill);
 			GUI.color = color;
-			GUI.DrawTexture(Rect(15,Screen.height - 15 - monotone.height,monotone.width * coeff,monotone.height),monotone,ScaleMode.StretchToFill);
+			GUI.DrawTexture(Rect(20,Screen.height - 20 - monotone.height,monotone.width * coeff,monotone.height),monotone,ScaleMode.StretchToFill);
 		}
 		GUI.color = Color.white;
 	}

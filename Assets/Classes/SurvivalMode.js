@@ -22,8 +22,8 @@ class SurvivalMode extends GameMode {
 	
 	function update() {
 		if (reinforcementsToBeSpawned > 0 && reinforcementTimer.canShoot()) {
-			Debug.Log("Reinforcements spawned");
-			spawnReinforcements();
+
+						spawnReinforcements();
 			reinforcementTimer.takeShot();
 		}
 		else if (! isWaveStillGoing()) {
@@ -32,7 +32,6 @@ class SurvivalMode extends GameMode {
 				nextWaveTimer.takeShot();
 				spawnWave();
 			}
-			Debug.Log(nextWaveTimer.getValue());
 		}
 		reinforcementTimer.update();
 		
@@ -73,7 +72,6 @@ class SurvivalMode extends GameMode {
 	
 	function drawEndGameScreen() {
 		clearAllEnemies();
-		Debug.Log("end game screen");
 		drawResultBox("You survived " + (wave - 1) + " rounds");
 	}
 	

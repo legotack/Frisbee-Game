@@ -7,6 +7,8 @@ private var health : healthManager;
 private var inventory : loadout;
 private var respawnTimer : RespawnTimer;
 
+var isInVehicle : boolean = false;
+
 function Start () {
 	inventory = GetComponent(loadout);
 	weapon = getInventoryWeapon(0);
@@ -19,18 +21,20 @@ function Start () {
 function Update () {
 	var w : boolean = health.wasAlive;
 	if (health.isAliveUpdate()) {
-		if (Input.GetButtonDown("Fire1") && weapon.reloadTimer.canShoot() && weapon.ammoCounter.hasEnoughAmmo())
-			shoot(weapon.weapon);
-		if (Input.GetButtonDown("Fire2") && weapon.reloadTimer.canShoot() && weapon.ammoCounter.hasEnoughAmmo())
-			weapon.powerupTimer.setOn(true);
-		if (Input.GetButton("Fire2") && weapon.reloadTimer.canShoot() && weapon.powerupTimer.activated)
-			weapon.powerupTimer.update();
-		if (Input.GetButtonUp("Fire2") && weapon.reloadTimer.canShoot() && weapon.powerupTimer.activated && weapon.ammoCounter.hasEnoughAmmo()) {
-			shoot(weapon.weapon).GetComponent(frisbeeMotion).setForehand(weapon.powerupTimer.getValue());
-			weapon.powerupTimer.reset();
+		if (! isInVehicle) {
+			if (Input.GetButtonDown("Fire1") && weapon.reloadTimer.canShoot() && weapon.ammoCounter.hasEnoughAmmo())
+				shoot(weapon.weapon);
+			if (Input.GetButtonDown("Fire2") && weapon.reloadTimer.canShoot() && weapon.ammoCounter.hasEnoughAmmo())
+				weapon.powerupTimer.setOn(true);
+			if (Input.GetButton("Fire2") && weapon.reloadTimer.canShoot() && weapon.powerupTimer.activated)
+				weapon.powerupTimer.update();
+			if (Input.GetButtonUp("Fire2") && weapon.reloadTimer.canShoot() && weapon.powerupTimer.activated && weapon.ammoCounter.hasEnoughAmmo()) {
+				shoot(weapon.weapon).GetComponent(frisbeeMotion).setForehand(weapon.powerupTimer.getValue());
+				weapon.powerupTimer.reset();
+			}
+			checkForWeaponSwitches();
+			weapon.reloadTimer.update();
 		}
-		checkForWeaponSwitches();
-		weapon.reloadTimer.update();
 	}
 	else {
 		if (game.gamemode.shouldRespawn(transform))
@@ -38,7 +42,7 @@ function Update () {
 		else if (w)
 			game.endGame(false);
 	}
-	toggleControl(health.isAlive() && ! game.gamemode.isDone);
+	toggleControl(health.isAlive() && ! game.gamemode.isDone && ! isInVehicle);
 }
 
 function shoot(frisbee : Transform) {
@@ -54,6 +58,14 @@ function toggleControl(flag : boolean) {
 	transform.parent.GetComponent(CharacterMotor).canControl = flag;
 	transform.parent.GetComponent(MouseLook).enabled = flag;
 	GetComponent(MouseLook).enabled = flag;
+}
+
+function setVehicleStatus(flag : boolean) {
+	GetComponent(Camera).enabled = ! flag;
+	GetComponent(AudioListener).enabled = ! flag;
+	transform.parent.Find("Graphics").GetComponent(MeshRenderer).enabled = ! flag;
+	transform.parent.GetComponent(CharacterController).enabled = ! flag;
+	isInVehicle = flag;
 }
 
 function respawn() {
@@ -93,7 +105,8 @@ function drawHUD() {
 	if (weapon.powerupTimer.activated)
 		GUIHandler.progressBar(weapon.powerupTimer.getValue(),GUIHandler.GUIColor,true);
 	GUIHandler.progressBar(health.getHealthRatio(),GUIHandler.healthColor,false);
-	renderReticle(weapon.powerupTimer.activated ? 64 : 128 * weapon.reloadTimer.getValue(),GUIHandler.GUIColor);
+	if (! isInVehicle)
+		renderReticle(weapon.powerupTimer.activated ? 64 : 128 * weapon.reloadTimer.getValue(),GUIHandler.GUIColor);
 	renderAmmo();
 }
 
