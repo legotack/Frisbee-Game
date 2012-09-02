@@ -7,7 +7,7 @@ private var health : healthManager;
 private var inventory : loadout;
 private var respawnTimer : RespawnTimer;
 
-var isInVehicle : boolean = false;
+var vehicle : Transform = null;
 
 function Start () {
 	inventory = GetComponent(loadout);
@@ -21,7 +21,7 @@ function Start () {
 function Update () {
 	var w : boolean = health.wasAlive;
 	if (health.isAliveUpdate()) {
-		if (! isInVehicle) {
+		if (vehicle == null) {
 			if (Input.GetButtonDown("Fire1") && weapon.reloadTimer.canShoot() && weapon.ammoCounter.hasEnoughAmmo())
 				shoot(weapon.weapon);
 			if (Input.GetButtonDown("Fire2") && weapon.reloadTimer.canShoot() && weapon.ammoCounter.hasEnoughAmmo())
@@ -42,7 +42,7 @@ function Update () {
 		else if (w)
 			game.endGame(false);
 	}
-	toggleControl(health.isAlive() && ! game.gamemode.isDone && ! isInVehicle);
+	toggleControl(health.isAlive() && ! game.gamemode.isDone && vehicle == null);
 }
 
 function shoot(frisbee : Transform) {
@@ -60,12 +60,12 @@ function toggleControl(flag : boolean) {
 	GetComponent(MouseLook).enabled = flag;
 }
 
-function setVehicleStatus(flag : boolean) {
+function setVehicleStatus(flag : boolean, v : Transform) {
 	GetComponent(Camera).enabled = ! flag;
 	GetComponent(AudioListener).enabled = ! flag;
 	transform.parent.Find("Graphics").GetComponent(MeshRenderer).enabled = ! flag;
 	transform.parent.GetComponent(CharacterController).enabled = ! flag;
-	isInVehicle = flag;
+	vehicle = flag ? v : null;
 }
 
 function respawn() {
@@ -105,7 +105,7 @@ function drawHUD() {
 	if (weapon.powerupTimer.activated)
 		GUIHandler.progressBar(weapon.powerupTimer.getValue(),GUIHandler.GUIColor,true);
 	GUIHandler.progressBar(health.getHealthRatio(),GUIHandler.healthColor,false);
-	if (! isInVehicle)
+	if (! vehicle)
 		renderReticle(weapon.powerupTimer.activated ? 64 : 128 * weapon.reloadTimer.getValue(),GUIHandler.GUIColor);
 	renderAmmo();
 }
@@ -123,7 +123,7 @@ function renderAmmo() {
 		GUI.color = Color.green;
 		var numFrisbees : int = (weapon.ammoCounter.ammo > 16) ? 16 : weapon.ammoCounter.ammo;
 		for (var i : int = 0; i < numFrisbees; i++)
-			GUI.DrawTexture(Rect(15 + 16 * i,Screen.height - 51,16,16),GUIHandler.frisbeeIcon);
+			GUI.DrawTexture(Rect(15 + 16 * i,Screen.height - 61,16,16),GUIHandler.frisbeeIcon);
 	}
 	else {
 		GUI.color = Color.red;

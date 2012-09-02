@@ -19,7 +19,3 @@ function OnControllerColliderHit(hit : ControllerColliderHit) {
 function getShot(amount : int, t : Transform) {
 	health.dealDamage(amount,t);
 }
-
-function OnParticleCollision(other : GameObject) {
-	Debug.Log("yo u burnin");
-}

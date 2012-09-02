@@ -9,6 +9,7 @@ var timeBeforeDespawn : float;
 var forehandSpeedCoefficient : float;
 var frisbeePowerupTime : float;
 var startingAmmo : float;
+var vehicleMultiplier : float;
 
 var combustTo : Transform;
 
@@ -41,6 +42,8 @@ function OnCollisionEnter(collision : Collision) {
 	lift = 0;
 	if (collision.collider.tag == "Player")
 		collision.collider.GetComponent(damageListener).getShot(damage,shooter);
+	if (collision.collider.tag == "Vehicle")
+		collision.collider.transform.parent.parent.GetComponent(damageListener).getShot(damage * vehicleMultiplier,shooter);
 	if (combustTo) {
 		var c : Transform = Instantiate(combustTo,transform.position,transform.rotation);
 		c.GetComponentInChildren(fireDamageDealer).creator = transform;

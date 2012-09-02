@@ -30,8 +30,10 @@ function Patrol () {
 		// Attack the player and wait until
 		// - player is killed
 		// - player is out of sight		
-		if (CanSeeTarget ())
+		if (CanSeeTarget())
 			yield StartCoroutine("AttackPlayer");
+		if (canSeeVehicle())
+			yield StartCoroutine("attackVehicle");
 		
 		// Move towards our target
 		MoveTowards(waypointPosition);
@@ -52,6 +54,17 @@ function CanSeeTarget () : boolean {
 	return false;
 }
 
+function canSeeVehicle() : boolean {
+	if (Vector3.Distance(transform.position, target.position) > attackRange)
+		return false;
+		
+	var hit : RaycastHit;
+	if (Physics.Linecast (transform.position, target.position, hit))
+		return hit.transform == target.Find("Controller").GetComponent(manageWeaponFiring).vehicle;
+
+	return false;
+}
+
 function Shoot () {
 	// Start shoot animation
 	animation.CrossFade("shoot", 0.3);
@@ -68,6 +81,10 @@ function Shoot () {
 	yield WaitForSeconds(animation["shoot"].length - delayShootTime);
 }
 
+function attackVehicle() {
+	Debug.Log("vehicle done got attacked");
+}
+
 function AttackPlayer () {
 	var lastVisiblePlayerPosition = target.position;
 	var counter:int = 0;
@@ -77,7 +94,6 @@ function AttackPlayer () {
 			// Target is dead - stop hunting
 			if (target == null || ! target.GetComponent(healthManager).isAlive())
 				return;
-
 			// Target is too far away - give up	
 			var distance = Vector3.Distance(transform.position, target.position);
 			//if (distance > shootRange * 3)
