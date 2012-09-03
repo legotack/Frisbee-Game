@@ -127,6 +127,6 @@ function renderAmmo() {
 	}
 	else {
 		GUI.color = Color.red;
-		GUI.DrawTexture(Rect(15,Screen.height - 51,16,16),GUIHandler.frisbeeIcon);
+		GUI.DrawTexture(Rect(15,Screen.height - 61,16,16),GUIHandler.frisbeeIcon);
 	}
 }

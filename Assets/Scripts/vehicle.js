@@ -61,7 +61,7 @@ function enter() {
 }
 
 function exit() {
-	GameObject.Find("Player(Clone)").transform.position.y += 2;
+	GameObject.Find("Player(Clone)").transform.position.y += enterDistance;
 	toggle(false);
 	isOccupied = false;
 }
@@ -73,8 +73,8 @@ function toggle(flag : boolean) {
 	GameObject.Find("Player(Clone)").transform.Find("Controller").GetComponent(manageWeaponFiring).setVehicleStatus(flag,transform);
 }
 
-function OnControllerColliderHit(collision : ControllerColliderHit) {
+function OnCollisionEnter(collision : Collision) {
 	Debug.Log("collision");
-	if (collision.transform.name != "Player(Clone)" && collision.transform.tag == "Player")
+	if (collision.collider.name != "Player(Clone)" && collision.collider.tag == "Player")
 		collision.collider.GetComponent(damageListener).getShot(100,gameObject.Find("Player(Clone)").transform);
 }

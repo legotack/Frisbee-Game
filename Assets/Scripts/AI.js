@@ -82,7 +82,7 @@ function Shoot () {
 }
 
 function attackVehicle() {
-	Debug.Log("vehicle done got attacked");
+	//Debug.Log("vehicle done got attacked");
 }
 
 function AttackPlayer () {
