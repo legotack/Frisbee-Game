@@ -20,7 +20,7 @@ function Start () {
 }
 
 function Patrol () {
-	var curWayPoint = AutoWayPoint.FindClosest(transform.position);
+	var curWayPoint = autoWayPoint.FindClosest(transform.position);
 	while (true) {
 		var waypointPosition = curWayPoint.transform.position;
 		// Are we close to a waypoint? -> pick the next one!
@@ -187,7 +187,7 @@ function MoveTowards (position : Vector3) {
 	SendMessage("SetSpeed", speed * speedModifier, SendMessageOptions.DontRequireReceiver);
 }
 
-function PickNextWaypoint (currentWaypoint : AutoWayPoint) {
+function PickNextWaypoint (currentWaypoint : autoWayPoint) {
 	// We want to find the waypoint where the character has to turn the least
 
 	// The direction in which we are walking
@@ -196,7 +196,7 @@ function PickNextWaypoint (currentWaypoint : AutoWayPoint) {
 	// The closer two vectors, the larger the dot product will be.
 	var best = currentWaypoint;
 	var bestDot = -10.0;
-	for (var cur : AutoWayPoint in currentWaypoint.connected) {
+	for (var cur : autoWayPoint in currentWaypoint.connected) {
 		var direction = Vector3.Normalize(cur.transform.position - transform.position);
 		var dot = Vector3.Dot(direction, forward);
 		if (dot > bestDot && cur != currentWaypoint) {

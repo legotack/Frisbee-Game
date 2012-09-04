@@ -2,11 +2,18 @@ static var waypoints = Array();
 var connected = Array();
 static var kLineOfSightCapsuleRadius = 0.25;
 
-static function FindClosest (pos : Vector3) : AutoWayPoint {
+var hideCube : boolean;
+
+function Update() {
+	if (hideCube)
+		GetComponent(MeshRenderer).enabled = false;
+}
+
+static function FindClosest (pos : Vector3) : autoWayPoint {
 	// The closer two vectors, the larger the dot product will be.
-	var closest : AutoWayPoint;
+	var closest : autoWayPoint;
 	var closestDistance = 100000.0;
-	for (var cur : AutoWayPoint in waypoints) {
+	for (var cur : autoWayPoint in waypoints) {
 		var distance = Vector3.Distance(cur.transform.position, pos);
 		if (distance < closestDistance)
 		{
@@ -37,7 +44,7 @@ function OnDrawGizmos () {
 function OnDrawGizmosSelected () {
 	if (waypoints.length == 0)
 		RebuildWaypointList();
-	for (var p : AutoWayPoint in connected) {
+	for (var p : autoWayPoint in connected) {
 		if (Physics.Linecast(transform.position, p.transform.position)) {
 			Gizmos.color = Color.red;
 			Gizmos.DrawLine (transform.position, p.transform.position);
@@ -49,10 +56,10 @@ function OnDrawGizmosSelected () {
 }
 
 function RebuildWaypointList () {
-	var objects : Object[] = FindObjectsOfType(AutoWayPoint);
+	var objects : Object[] = FindObjectsOfType(autoWayPoint);
 	waypoints = Array(objects);
 	
-	for (var point : AutoWayPoint in waypoints) {
+	for (var point : autoWayPoint in waypoints) {
 		point.RecalculateConnectedWaypoints();
 	}
 }
@@ -61,7 +68,7 @@ function RecalculateConnectedWaypoints ()
 {
 	connected = Array();
 
-	for (var other : AutoWayPoint in waypoints) {
+	for (var other : autoWayPoint in waypoints) {
 		// Don't connect to ourselves
 		if (other == this)
 			continue;

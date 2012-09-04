@@ -45,7 +45,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\AI Package\WeaponScripts\AIAnimation.js" />
-     <Compile Include="Assets\AI Package\WeaponScripts\AutoWayPoint.js" />
      <Compile Include="Assets\AI Package\WeaponScripts\CharacterDamage.js" />
      <Compile Include="Assets\AI Package\WeaponScripts\DamageReceiver.js" />
      <Compile Include="Assets\AI Package\WeaponScripts\Explosion-Advanced.js" />
@@ -69,6 +68,7 @@
      <Compile Include="Assets\Classes\Timer.js" />
      <Compile Include="Assets\Scripts\AI.js" />
      <Compile Include="Assets\Scripts\autoSpawnPoint.js" />
+     <Compile Include="Assets\Scripts\autoWayPoint.js" />
      <Compile Include="Assets\Scripts\damageListener.js" />
      <Compile Include="Assets\Scripts\fireDamageDealer.js" />
      <Compile Include="Assets\Scripts\forcetileMotion.js" />
@@ -80,6 +80,7 @@
      <Compile Include="Assets\Scripts\mainMenu.js" />
      <Compile Include="Assets\Scripts\manageWeaponFiring.js" />
      <Compile Include="Assets\Scripts\noDoubleJump.js" />
+     <Compile Include="Assets\Scripts\playerInteractor.js" />
      <Compile Include="Assets\Scripts\timedObjectDestructor.js" />
      <Compile Include="Assets\Scripts\vehicle.js" />
      <Compile Include="Assets\Tools\TerrainToolkit\TerrainToolkitEnums.js" />

@@ -16,7 +16,7 @@ class SurvivalMode extends GameMode {
 		reinforcementTimer = new ReloadTimer(2);
 		nextWaveTimer = new ReloadTimer(20);
 		super.setup();
-		player.gameObject.AddComponent(AutoWayPoint);
+		player.gameObject.AddComponent(autoWayPoint);
 		spawnWave();
 	}
 	
