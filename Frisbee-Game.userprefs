@@ -1,10 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\playerInteractor.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\loadout.js">
     <Files>
-      <File FileName="Assets\Scripts\autoWayPoint.js" Line="16" Column="45" />
+      <File FileName="Assets\Scripts\loadout.js" Line="9" Column="1" />
+      <File FileName="Assets\Scripts\autoWayPoint.js" Line="1" Column="1" />
       <File FileName="Assets\Scripts\AI.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\vehicle.js" Line="12" Column="33" />
+      <File FileName="Assets\Scripts\vehicle.js" Line="1" Column="1" />
       <File FileName="Assets\Scripts\playerInteractor.js" Line="40" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
