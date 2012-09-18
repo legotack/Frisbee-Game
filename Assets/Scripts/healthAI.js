@@ -18,6 +18,7 @@ function Update() {
 	if (! GetComponent(healthManager).isAlive()) {	
 		Destroy(gameObject);
 		Instantiate(ragdoll,transform.position,transform.rotation);
+		Global.balance += 15;
 	}
 }
 

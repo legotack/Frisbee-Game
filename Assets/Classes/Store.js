@@ -11,7 +11,8 @@ class Store extends playerInteractor{
 	function Awake() {
 		weapons = new Array();
 		for (var i : int = 0; i < frisbees.Length; i++) {
-			weapons.Add(new InventoryWeapon(frisbees[i],frisbeeNameExtract(frisbees[i].ToString())));
+			var priceGet:frisbeeMotion = frisbees[i].GetComponent(frisbeeMotion);
+			weapons.Add(new InventoryWeapon(frisbees[i],frisbeeNameExtract(frisbees[i].ToString()),priceGet.price));
 		}
 	}
 	
@@ -30,7 +31,7 @@ class Store extends playerInteractor{
 
 	function Update(){
 		canBeAccessedByPlayer();
-		Debug.Log(GameObject.Find("Player(Clone)").Find("Controller").GetComponent(loadout).weapons);
+		Debug.Log(Global.balance);
 	}
 	
 	function canBeAccessedByPlayer(){
@@ -53,21 +54,29 @@ class Store extends playerInteractor{
 	}
 	
 	function addItemToPlayer(weaponIndex:int){
+		if(!canSell(50))return;
 		var playerLoadout:loadout = GameObject.Find("Player(Clone)").Find("Controller").GetComponent(loadout);
 		var boughtWeapon : InventoryWeapon = weapons[weaponIndex];
+		if(!canSell(boughtWeapon.cost))return;
 		for(var y:int=0;y<playerLoadout.weapons.length;y++){
 			var remoteWeaponsY : InventoryWeapon = playerLoadout.weapons[y];
 			if(boughtWeapon.weaponName == remoteWeaponsY.weaponName){
 				addAmmoToFrisbee(y);
+				Global.balance-=boughtWeapon.cost;
 				return;
 			}
 		}
 		playerLoadout.weapons.Add(weapons[weaponIndex]);
+		Global.balance-=boughtWeapon.cost+10;
 	}
 	
 	function addAmmoToFrisbee(weaponIndex:int){
 		var playerLoadout:loadout = GameObject.Find("Player(Clone)").Find("Controller").GetComponent(loadout);
 		var playerWeapons : InventoryWeapon = playerLoadout.weapons[weaponIndex];
+		if(playerWeapons.ammoCounter.ammo == playerWeapons.ammoCounter.ammoIncrement) return;
 		playerWeapons.ammoCounter.getMoreAmmo();
+	}
+	function canSell(price:int){
+		return Global.balance >= price;
 	}
 }

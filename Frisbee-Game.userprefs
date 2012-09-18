@@ -1,12 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\loadout.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Classes\Store.js">
     <Files>
-      <File FileName="Assets\Scripts\loadout.js" Line="9" Column="1" />
-      <File FileName="Assets\Scripts\autoWayPoint.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\AI.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\vehicle.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\playerInteractor.js" Line="40" Column="2" />
+      <File FileName="Assets\Classes\Store.js" Line="1" Column="15" />
+      <File FileName="Assets\Scripts\loadout.js" Line="10" Column="72" />
+      <File FileName="Assets\Classes\Global.js" Line="12" Column="26" />
+      <File FileName="Assets\Classes\InventoryWeapon.js" Line="20" Column="3" />
+      <File FileName="Assets\Classes\AmmoCounter.js" Line="25" Column="8" />
+      <File FileName="Assets\Scripts\playerInteractor.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\frisbeeMotion.js" Line="20" Column="45" />
+      <File FileName="Assets\Scripts\forcetileMotion.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

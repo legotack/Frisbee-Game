@@ -108,6 +108,8 @@ function drawHUD() {
 	if (! vehicle)
 		renderReticle(weapon.powerupTimer.activated ? 64 : 128 * weapon.reloadTimer.getValue(),GUIHandler.GUIColor);
 	renderAmmo();
+	GUI.color=Color.grey;
+	renderCash();
 }
 
 function renderReticle(width : int, color : Color) {
@@ -129,4 +131,8 @@ function renderAmmo() {
 		GUI.color = Color.red;
 		GUI.DrawTexture(Rect(15,Screen.height - 61,16,16),GUIHandler.frisbeeIcon);
 	}
+}
+
+function renderCash(){
+	GUIHandler.box(Rect(Screen.width/32*29.5,Screen.height-111,100,50),"#"+Global.balance.ToString());
 }

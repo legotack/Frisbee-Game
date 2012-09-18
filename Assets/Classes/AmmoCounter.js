@@ -22,7 +22,7 @@ class AmmoCounter {
 	}
 	
 	function getMoreAmmo() {
-		ammo += ammoIncrement;
+		ammo = ammoIncrement;
 	}
 
 }
