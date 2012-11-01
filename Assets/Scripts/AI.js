@@ -91,7 +91,7 @@ function attackVehicle() {
 	while (true) {
 		if (canSeeVehicle()) {
 			// Target is dead - stop hunting
-			if (v == null ||  (v.GetComponent(vehicle) && ! v.GetComponent(vehicle).health.isAlive()) || (v.GetComponent(Store) && ! v.GetComponent(Store).health.isAlive()) || ! v.GetComponent(vehicle).isOccupied)
+			if (v == null || ! v.GetComponent(healthManager).isAlive() || ! v.GetComponent(playerInteractor).isOccupied)
 				return;
 			// Target is too far away - give up	
 			var distance = Vector3.Distance(transform.position, v.position);

@@ -1,12 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\AI.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\frisbeeMotion.js">
     <Files>
-      <File FileName="Assets\Scripts\healthAI.js" Line="16" Column="74" />
-      <File FileName="Assets\Classes\Global.js" Line="16" Column="1" />
-      <File FileName="Assets\Classes\Store.js" Line="39" Column="65" />
-      <File FileName="Assets\Scripts\playerInteractor.js" Line="38" Column="47" />
-      <File FileName="Assets\Scripts\AI.js" Line="87" Column="89" />
+      <File FileName="Assets\Scripts\damageListener.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\playerInteractor.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\AI.js" Line="96" Column="40" />
+      <File FileName="Assets\Scripts\healthAI.js" Line="1" Column="1" />
+      <File FileName="Assets\Classes\Global.js" Line="1" Column="1" />
+      <File FileName="Assets\Classes\Store.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\frisbeeMotion.js" Line="47" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
