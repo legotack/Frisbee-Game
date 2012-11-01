@@ -54,8 +54,6 @@
      <Compile Include="Assets\AI Package\WeaponScripts\Rocket.js" />
      <Compile Include="Assets\AI Package\WeaponScripts\RocketLauncher.js" />
      <Compile Include="Assets\AI Package\WeaponScripts\SentryGun.js" />
-     <Compile Include="Assets\Audio\AudioHandler.js" />
-     <Compile Include="Assets\Audio\DJAudioHandler.js" />
      <Compile Include="Assets\Classes\AmmoCounter.js" />
      <Compile Include="Assets\Classes\Constants.js" />
      <Compile Include="Assets\Classes\DamMissionMode.js" />
