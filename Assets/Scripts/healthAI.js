@@ -12,7 +12,8 @@ function Start() {
 }
 
 function Update() {
-	if (! GetComponent(healthManager).isAlive()) {	
+	if (! GetComponent(healthManager).isAlive()) {
+		GameObject.Find("Map").GetComponent(gameHandler).gamemode
 		Destroy(gameObject);
 		Instantiate(ragdoll,transform.position,transform.rotation);
 	}

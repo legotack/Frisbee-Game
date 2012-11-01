@@ -44,6 +44,7 @@ class SurvivalMode extends GameMode {
 	}
 	
 	function spawnWave() {
+		stats.clearWave(wave);
 		wave += 1;
 		enemies = new Array();
 		player.GetComponent(healthManager).heal(100);

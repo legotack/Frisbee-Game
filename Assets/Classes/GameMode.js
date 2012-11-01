@@ -7,6 +7,8 @@ class GameMode {
 	protected var enemies : Array;
 	protected var hasWon : boolean;
 	
+	public var stats : Stats;
+	
 	var isDone : boolean;
 	
 	function GameMode() {
@@ -16,6 +18,7 @@ class GameMode {
 	
 	function setup() {
 		spawnPlayer();
+		stats = new Stats();
 		enemies = new Array();
 	}
 	
@@ -28,6 +31,8 @@ class GameMode {
 	function endGame(hasWon : boolean) {
 		isDone = true;
 		this.hasWon = hasWon;
+		if (! hasWon)
+			stats.die();
 	}
 	
 	function setMap(game : gameHandler) {

@@ -32,14 +32,14 @@ function OnGUI() {
 		selectedGamemode = new SurvivalMode();
 		Application.LoadLevel("Carlisle");
 	}
-	if (drawMenuOption("Quit",null,3))
+	if (drawMenuOption("Quit","quitButton",3))
 		Application.Quit();
 }
 
 function drawMenuOption(text : String, style : String, position : int) {
 	if (style != null)
-		return GUIHandler.customButton(Screen.width * 1/2 - 125,Screen.height * 1/3 + 100 * position,style);
-	return GUIHandler.button(Screen.width * 1/2 - 125,Screen.height * 1/3 + 100 * position,250,75,text);
+		return GUIHandler.customButton(Screen.width * 1/2 - 125,Screen.height * 1/4 + 100 * position,style);
+	return GUIHandler.button(Screen.width * 1/2 - 125,Screen.height * 1/4 + 100 * position,250,75,text);
 }
 
 //TODO: GUI window class with holder, etc.

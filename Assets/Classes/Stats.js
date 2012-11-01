@@ -2,19 +2,22 @@
 
 class Stats {
 
+	private static final var XP_PER_KILL : int = 10;
+	private static final var XP_PER_WAVE : int = 100;
+
 	private var xp : int;
 	private var kills : int;
 	private var deaths: int;
 	private var wavesCleared : int;
 
-	public function Stats(xp : int, kills : int, deaths : int, wavesCleared : int) {
-		this.xp = xp;
-		this.kills = kills;
-		this.deaths = deaths;
-		this.wavesCleared = wavesCleared;
+	public function Stats() {
+		xp = 0;
+		kills = 0;
+		deaths = 0;
+		wavesCleared = 0;
 	}
 	
-	public static function loadFromFile(file : String) : Stats {
+	public function Stats(file : String) {
 	}
 	
 	private function getRatio(x : int, y : int) : float {
@@ -23,6 +26,24 @@ class Stats {
 	
 	private function truncate(v : float, digit : int) : float {
 		return Mathf.Floor(v * digit) * digit;
+	}
+	
+	public function kill() : void {
+		kills++;
+		xp += XP_PER_KILL;
+	}
+	
+	public function die() : void {
+		deaths++;
+	}
+	
+	public function clearWave(number : int) : void {
+		wavesCleared++;
+		xp += XP_PER_WAVE * number;
+	}
+	
+	public function awardXP(xp : int) : void {
+		this.xp += xp;
 	}
 	
 	public function add(stats : Stats) : void {
