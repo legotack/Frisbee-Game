@@ -10,6 +10,7 @@ var forehandSpeedCoefficient : float;
 var frisbeePowerupTime : float;
 var startingAmmo : float;
 var vehicleMultiplier : float;
+var price : int;
 
 var combustTo : Transform;
 

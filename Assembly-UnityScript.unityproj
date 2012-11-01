@@ -65,6 +65,7 @@
      <Compile Include="Assets\Classes\ReloadTimer.js" />
      <Compile Include="Assets\Classes\RespawnTimer.js" />
      <Compile Include="Assets\Classes\Stats.js" />
+     <Compile Include="Assets\Classes\Store.js" />
      <Compile Include="Assets\Classes\SurvivalMode.js" />
      <Compile Include="Assets\Classes\Timer.js" />
      <Compile Include="Assets\Scripts\AI.js" />

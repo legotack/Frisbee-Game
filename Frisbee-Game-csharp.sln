@@ -29,7 +29,10 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																																											GlobalSection(MonoDevelopProperties) = preSolution
+																																																																													GlobalSection(MonoDevelopProperties) = preSolution
+=======
+																																																							GlobalSection(MonoDevelopProperties) = preSolution
+>>>>>>> 6d9891d340be06789e3c3c57914ed2f497046199
 =======
 																		GlobalSection(MonoDevelopProperties) = preSolution
 >>>>>>> vehicles_and_tree_collider

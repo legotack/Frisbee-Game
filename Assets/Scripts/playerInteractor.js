@@ -1,6 +1,7 @@
 #pragma strict
 
 var view : Transform;
+var visibilityTest : Transform;
 
 var enterDistance : float;
 var healthBarTranslation : float;
@@ -33,8 +34,10 @@ function Update() {
 
 function OnGUI() {
 	if (canBeEntered() && ! isOccupied)
-		GUIHandler.box(Rect(transform.Find("View").camera.WorldToScreenPoint(transform.position).x,transform.Find("View").camera.WorldToScreenPoint(transform.position).y,30,30),"Z");
-	if (transform.Find("Model/Cube").renderer.isVisible)
+		GUIHandler.box(Rect(view.camera.WorldToScreenPoint(transform.position).x,view.camera.WorldToScreenPoint(transform.position).y,30,30),"Z");
+	if (health && health.isAlive() && isOccupied)
+		playerInsideGUIEvent();
+	if (visibilityTest.renderer.isVisible)
 		GUIHandler.healthBar(health.getHealthRatio(),transform.position + Vector3.up * healthBarTranslation,true);	
 }
 
@@ -48,6 +51,9 @@ function canBeEntered() {
 }
 
 protected function playerInsideEvent() {
+}
+
+protected function playerInsideGUIEvent() {
 }
 
 private function enter() {

@@ -54,9 +54,6 @@
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>Library\ScriptAssemblies\Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
- <Reference Include="Assembly-UnityScript">
- <HintPath>Library\ScriptAssemblies\Assembly-UnityScript.dll</HintPath>
- </Reference>
  <Reference Include="U_r_g_freelib">
  <HintPath>Assets\Tools\UltimateRagdollFree\Scripts\Editor\U_r_g_freelib.dll</HintPath>
  </Reference>

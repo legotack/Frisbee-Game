@@ -13,9 +13,10 @@ function Start() {
 
 function Update() {
 	if (! GetComponent(healthManager).isAlive()) {
-		GameObject.Find("Map").GetComponent(gameHandler).gamemode
+		GameObject.Find("Map").GetComponent(gameHandler).gamemode.stats.kill();
 		Destroy(gameObject);
 		Instantiate(ragdoll,transform.position,transform.rotation);
+		Global.balance += 15;
 	}
 }
 

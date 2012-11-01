@@ -1,12 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\healthAI.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\AI.js">
     <Files>
-      <File FileName="Assets\Classes\GameMode.js" Line="14" Column="23" />
-      <File FileName="Assets\Classes\SurvivalMode.js" Line="50" Column="35" />
-      <File FileName="Assets\Classes\Global.js" Line="1" Column="1" />
-      <File FileName="Assets\Classes\Stats.js" Line="8" Column="12" />
-      <File FileName="Assets\Scripts\healthAI.js" Line="16" Column="60" />
+      <File FileName="Assets\Scripts\healthAI.js" Line="16" Column="74" />
+      <File FileName="Assets\Classes\Global.js" Line="16" Column="1" />
+      <File FileName="Assets\Classes\Store.js" Line="39" Column="65" />
+      <File FileName="Assets\Scripts\playerInteractor.js" Line="38" Column="47" />
+      <File FileName="Assets\Scripts\AI.js" Line="87" Column="89" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
