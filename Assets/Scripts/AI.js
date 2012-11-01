@@ -81,16 +81,64 @@ function Shoot () {
 	yield WaitForSeconds(animation["shoot"].length - delayShootTime);
 }
 
-function attackVehicle() {
-	//Debug.Log("vehicle done got attacked");
-}
+//choose anti-vehicle weapon
 
-function AttackPlayer () {
+function attackVehicle() {
+	var v : Transform = target.Find("Controller").GetComponent(manageWeaponFiring).vehicle;
 	var lastVisiblePlayerPosition = target.position;
 	var counter:int = 0;
 	var decision:float;
 	while (true) {
-		if (CanSeeTarget ()) {
+		if (canSeeVehicle()) {
+			// Target is dead - stop hunting
+			if (v == null || ! v.GetComponent(vehicle).health.isAlive() || ! v.GetComponent(vehicle).isOccupied)
+				return;
+			// Target is too far away - give up	
+			var distance = Vector3.Distance(transform.position, v.position);
+			//if (distance > shootRange * 3)
+			//	return;
+			
+			lastVisiblePlayerPosition = v.position;
+			if (distance > dontComeCloserRange)
+				MoveTowards (lastVisiblePlayerPosition);
+			else
+				RotateTowards(lastVisiblePlayerPosition);
+
+			var forward = transform.TransformDirection(Vector3.forward);
+			var targetDirection = lastVisiblePlayerPosition - transform.position;
+			targetDirection.y = 0;
+
+			var angle = Vector3.Angle(targetDirection, forward);
+			
+			if(counter<1){
+				decision = Random.Range(0.0,2.0);
+			}
+			//strafe(decision);
+			if(counter >10){
+				counter = -1;
+			}
+			// Start shooting if close and play is in sight
+			if (distance < shootRange && angle < shootAngle)
+				yield StartCoroutine("Shoot");
+			counter++;
+		}
+		else {
+			yield StartCoroutine("SearchPlayer", lastVisiblePlayerPosition);
+			// Player not visible anymore - stop attacking
+			if (!CanSeeTarget ())
+				return;
+		}
+
+		yield;
+	}
+}
+
+function AttackPlayer() {
+	var lastVisiblePlayerPosition = target.position;
+	var counter:int = 0;
+	var decision:float;
+	while (true) {
+		if (CanSeeTarget()) {
 			// Target is dead - stop hunting
 			if (target == null || ! target.GetComponent(healthManager).isAlive())
 				return;
@@ -123,7 +171,7 @@ function AttackPlayer () {
 				yield StartCoroutine("Shoot");
 			counter++;
 		} else {
-			yield StartCoroutine("SearchPlayer", lastVisiblePlayerPosition);
+			//yield StartCoroutine("SearchPlayer", lastVisiblePlayerPosition);
 			// Player not visible anymore - stop attacking
 			if (!CanSeeTarget ())
 				return;

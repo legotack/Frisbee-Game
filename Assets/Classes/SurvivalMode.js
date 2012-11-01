@@ -22,8 +22,7 @@ class SurvivalMode extends GameMode {
 	
 	function update() {
 		if (reinforcementsToBeSpawned > 0 && reinforcementTimer.canShoot()) {
-
-						spawnReinforcements();
+			spawnReinforcements();
 			reinforcementTimer.takeShot();
 		}
 		else if (! isWaveStillGoing()) {

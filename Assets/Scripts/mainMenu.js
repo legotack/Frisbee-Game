@@ -12,32 +12,34 @@ function Start() {
 	GUIHandler.setSkin(skin);
 }
 
+/*
+*
+* TODO: make class Menu which is extended by MainMenu
+*
+*/
+
 function OnGUI() {
-	GUI.color = GUIHandler.GUIColor;
-	GUI.DrawTexture(Rect(0,0,GUIHandler.logo.width,Screen.height),GUIHandler.monotone);
-	GUI.color = GUIHandler.backgroundColor;
-	GUI.DrawTexture(Rect(GUIHandler.logo.width,0,Screen.width - GUIHandler.logo.width,Screen.height),GUIHandler.background);
-	GUI.color = Color.white;
-	GUIHandler.msg(Rect(15,15 + GUIHandler.logo.height,GUIHandler.logo.width - 30,Screen.height - 15 - GUIHandler.logo.height),"Welcome to fShargle Warfare BETA!\nMade by the SnorriDev Team.");
-	GUI.DrawTexture(Rect(0, 0,GUIHandler.logo.width,GUIHandler.logo.height),GUIHandler.logo);
-	if (drawMenuOption("Survival Beta on Dam",0)) {
+	GUI.DrawTexture(Rect(0,0,Screen.width,Screen.height),GUIHandler.menu);
+	if (drawMenuOption("Survival Beta on Dam","damButton",0)) {
 		selectedGamemode = new SurvivalMode();
 		Application.LoadLevel("Dam");
 	}
-	if (drawMenuOption("Survival Beta on Bridge",1)) {
+	if (drawMenuOption("Survival Beta on Bridge","bridgeButton",1)) {
 		selectedGamemode = new SurvivalMode();
 		Application.LoadLevel("Bridge");
 	}
-	if (drawMenuOption("Survival Beta on Carlisle",2)) {
+	if (drawMenuOption("Survival Beta on Carlisle","carlisleButton",2)) {
 		selectedGamemode = new SurvivalMode();
 		Application.LoadLevel("Carlisle");
 	}
-	if (drawMenuOption("Quit",3))
+	if (drawMenuOption("Quit",null,3))
 		Application.Quit();
 }
 
-function drawMenuOption(text : String, position : int) {
-	return GUIHandler.button(Screen.width * 1/2 - 100,Screen.height * 1/3 + 65 * position,200,50,text);
+function drawMenuOption(text : String, style : String, position : int) {
+	if (style != null)
+		return GUIHandler.customButton(Screen.width * 1/2 - 125,Screen.height * 1/3 + 100 * position,style);
+	return GUIHandler.button(Screen.width * 1/2 - 125,Screen.height * 1/3 + 100 * position,250,75,text);
 }
 
 //TODO: GUI window class with holder, etc.

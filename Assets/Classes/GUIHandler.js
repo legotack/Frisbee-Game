@@ -11,7 +11,7 @@ static class GUIHandler {
 	var textColor : Color;
 	var backgroundColor : Color;
 	
-	var logo : Texture;
+	var menu : Texture;
 	var monotone : Texture;
 	var background : Texture;
 	var backhandReticle : Texture;
@@ -27,7 +27,7 @@ static class GUIHandler {
 	}
 	
 	function loadImages(images : Texture[]) {
-		logo = images[0];
+		menu = images[0];
 		monotone = images[1];
 		background = images[2];
 		backhandReticle = images[3];
@@ -49,27 +49,45 @@ static class GUIHandler {
 		GUI.Box(pos,s);
 	}
 	
-	function button(x : int,y : int,width : int,height : int,text : String) {
+	function button(x : int, y : int, width : int, height : int, text : String) {
 		GUI.skin = skin;
 		return GUI.Button(Rect(x,y,width,height),text);
 	}
 	
+	function customButton(x : int,y : int,style : String) {
+		GUI.skin = skin;
+		return GUI.Button(Rect(x,y,250,75),"",style);
+	}
+	
 	function progressBar(coeff : float, color : Color,inverted : boolean) {
-		GUI.color = Color.black;
+		GUI.color = Color.white;
 		if (inverted) {
-			GUI.DrawTexture(Rect(Screen.width - 25 - monotone.width,Screen.height - 25 - monotone.height,monotone.width + 10,monotone.height + 10),monotone,ScaleMode.StretchToFill);
+			GUI.DrawTexture(Rect(Screen.width - 25 - monotone.width,Screen.height - 25 - monotone.height,monotone.width + 10,monotone.height + 10),background,ScaleMode.StretchToFill);
 			GUI.color = fadedBarColor;
 			GUI.DrawTexture(Rect(Screen.width - 20 - monotone.width,Screen.height - 20 - monotone.height,monotone.width,monotone.height),monotone,ScaleMode.StretchToFill);
 			GUI.color = color;
 			GUI.DrawTexture(Rect(Screen.width - 20 - monotone.width * coeff,Screen.height - 20 - monotone.height,monotone.width * coeff,monotone.height),monotone,ScaleMode.StretchToFill);
 		}
 		else {
-			GUI.DrawTexture(Rect(15,Screen.height - 25 - monotone.height,monotone.width + 10,monotone.height + 10),monotone,ScaleMode.StretchToFill);
+			GUI.DrawTexture(Rect(15,Screen.height - 25 - monotone.height,monotone.width + 10,monotone.height + 10),background,ScaleMode.StretchToFill);
 			GUI.color = fadedBarColor;
 			GUI.DrawTexture(Rect(20,Screen.height - 20 - monotone.height,monotone.width,monotone.height),monotone,ScaleMode.StretchToFill);
 			GUI.color = color;
 			GUI.DrawTexture(Rect(20,Screen.height - 20 - monotone.height,monotone.width * coeff,monotone.height),monotone,ScaleMode.StretchToFill);
 		}
-		GUI.color = Color.white;
 	}
+	
+	function healthBar(coeff : float, position : Vector3, friendly : boolean) {
+		if (Camera.main != null) {
+			var healthBarCoords : Vector2 = Camera.main.WorldToScreenPoint(position);
+			if (Mathf.Abs(healthBarCoords.x - Screen.width / 2) > 128 || Mathf.Abs(healthBarCoords.y - Screen.height / 2) > 128)
+				return;
+			var distanceModifier : float = 2 / Vector3.Distance(Camera.main.transform.position,position);
+			GUI.color = fadedBarColor;
+			GUI.DrawTexture(Rect(healthBarCoords.x - monotone.width * distanceModifier / 2,Screen.height - healthBarCoords.y,monotone.width * distanceModifier,monotone.height * distanceModifier),monotone,ScaleMode.StretchToFill);
+			GUI.color = friendly ? GUIColor : healthColor;
+			GUI.DrawTexture(Rect(healthBarCoords.x - monotone.width * distanceModifier / 2,Screen.height - healthBarCoords.y,monotone.width * coeff * distanceModifier,monotone.height * distanceModifier),monotone,ScaleMode.StretchToFill);
+		}
+	}
+	
 }
