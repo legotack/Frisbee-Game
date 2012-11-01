@@ -10,12 +10,14 @@ static var target : Transform;
 var frisbee : Transform;
 
 private var lastShot = -10.0;
+private var audioStuff : AudioHandler;
 
 // Make sure there is always a character controller
 @script RequireComponent (CharacterController)
 
 function Start () {
 	// Auto setup player as target through tags
+	audioStuff = GetComponent(AudioHandler);
 	Patrol();
 }
 
@@ -76,7 +78,7 @@ function Shoot () {
 	var f : Transform = Instantiate(frisbee,transform.position + transform.forward * frisbee.GetComponent(frisbeeMotion).getRadius(),transform.rotation); //here you can rotate 2x the angle downhill or just look at the player
 	frisbee.rigidbody.velocity = GetComponent(CharacterController).velocity;
 	frisbee.GetComponent(frisbeeMotion).shooter = transform;
-	
+	audioStuff.playFrisbeeToss();
 	// Wait for the rest of the animation to finish
 	yield WaitForSeconds(animation["shoot"].length - delayShootTime);
 }
