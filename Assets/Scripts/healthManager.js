@@ -4,22 +4,18 @@ var maxHealth : int;
 
 var health : int;
 private var lastSource : Transform;
-private var audioStuff : AudioHandler;
-private var djAudioStuff : AudioSource;
 
 var wasAlive : boolean;
 
 function Start() {
 	health = maxHealth;
 	wasAlive = true;
-	audioStuff = GetComponent(AudioHandler);
-	djAudioStuff = GameObject.Find("Player(Clone)").Find("DJOfAudio").GetComponent(AudioSource);
 }
 
 function dealDamage(amount : int, source : Transform) {
 	health -= amount;
 	lastSource = source;
-	audioStuff.playHurtNoise();
+	AudioHandler.playHurtNoise();
 }
 
 function getHealthRatio() {
@@ -32,7 +28,6 @@ function heal(amount : int) {
 
 function isAlive() {
 	if (Global.godMode && transform.gameObject.name.Substring(0,6) == "Player") return true;
-	if(health < 1 && transform.name=="Player(Clone)") djAudioStuff.Play();
 	return health > 0;
 }
 

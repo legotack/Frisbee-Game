@@ -5,12 +5,10 @@ var minViewDistance : float;
 
 private var health : healthManager;
 private var model : Transform;
-private var audioStuff : AudioHandler;
 
 function Start() {
 	health = GetComponent(healthManager);
 	model = transform.Find("roothandle");
-	audioStuff = GetComponent(AudioHandler);
 }
 
 function Update() {
@@ -18,7 +16,7 @@ function Update() {
 		GameObject.Find("Map").GetComponent(gameHandler).gamemode.stats.kill();
 		Destroy(gameObject);
 		Instantiate(ragdoll,transform.position,transform.rotation);
-		audioStuff.playDeathNoise();
+		AudioHandler.playDeathNoise();
 		Global.balance += 15;
 	}
 }
