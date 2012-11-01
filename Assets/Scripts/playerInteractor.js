@@ -19,6 +19,7 @@ function Update() {
 	if (health.isAlive()) {
 		if (isOccupied) {
 			playerInsideEvent();
+			updateViewPosition();
 			if (Input.GetButtonDown("Enter"))
 				exit();
 		}
@@ -30,6 +31,11 @@ function Update() {
 			GameObject.Find("Player(Clone)").GetComponent(damageListener).getShot(100,transform);
 		Destroy(gameObject);
 	}
+}
+
+function updateViewPosition() {
+	//view.RotateAround(transform.position, transform.right, Input.GetAxis("Mouse Y"));
+	view.RotateAround(transform.position, transform.up, Input.GetAxis("Mouse X"));
 }
 
 function OnGUI() {
