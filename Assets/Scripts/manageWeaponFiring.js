@@ -7,7 +7,7 @@ private var health : healthManager;
 private var inventory : loadout;
 private var respawnTimer : RespawnTimer;
 private var gameOverNoisePlayed : boolean;
-
+private var audioStuff : AudioHandler;
 var vehicle : Transform = null;
 
 function Start () {
@@ -18,6 +18,7 @@ function Start () {
 	game = GameObject.Find("Map").GetComponent(gameHandler);
 	toggleControl(true);
 	gameOverNoisePlayed = false;
+	audioStuff = transform.parent.GetComponent(AudioHandler);
 }
 
 function Update () {
@@ -40,7 +41,7 @@ function Update () {
 	}
 	else {
 		if(!gameOverNoisePlayed){
-			AudioHandler.playEndGame();
+			audioStuff.playEndGame();
 			gameOverNoisePlayed=true;
 		}
 		if (game.gamemode.shouldRespawn(transform))
@@ -57,7 +58,7 @@ function shoot(frisbee : Transform) {
 	var f : Transform = Instantiate(frisbee,transform.position + transform.forward * frisbee.GetComponent(frisbeeMotion).getRadius(),transform.rotation);
 	frisbee.rigidbody.velocity = transform.parent.GetComponent(CharacterController).velocity;
 	frisbee.GetComponent(frisbeeMotion).shooter = transform;
-	AudioHandler.playFrisbeeToss();
+	audioStuff.playFrisbeeToss();
 	return f;
 }
 
