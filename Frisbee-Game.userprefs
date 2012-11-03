@@ -1,8 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Audio\DJOfAudio.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Audio\AudioHandler.js">
     <Files>
-      <File FileName="Assets\Audio\DJOfAudio.js" Line="11" Column="17" />
+      <File FileName="Assets\Audio\DJOfAudio.js" Line="12" Column="15" />
       <File FileName="Assets\Scripts\AI.js" Line="1" Column="1" />
       <File FileName="Assets\Scripts\healthAI.js" Line="1" Column="1" />
       <File FileName="Assets\Scripts\healthManager.js" Line="1" Column="1" />
