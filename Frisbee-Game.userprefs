@@ -2,14 +2,14 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Audio\DJOfAudio.js">
     <Files>
+      <File FileName="Assets\Audio\DJOfAudio.js" Line="11" Column="17" />
       <File FileName="Assets\Scripts\AI.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\healthAI.js" Line="13" Column="42" />
-      <File FileName="Assets\Scripts\healthManager.js" Line="21" Column="1" />
-      <File FileName="Assets\Scripts\manageWeaponFiring.js" Line="21" Column="32" />
-      <File FileName="Assets\Audio\DJOfAudio.js" Line="15" Column="3" />
+      <File FileName="Assets\Scripts\healthAI.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\healthManager.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\manageWeaponFiring.js" Line="1" Column="1" />
       <File FileName="Assets\Classes\Store.js" Line="1" Column="1" />
       <File FileName="Assets\Audio\AudioHandler.js" Line="15" Column="1" />
-      <File FileName="Assets\Classes\GameMode.js" Line="52" Column="1" />
+      <File FileName="Assets\Classes\GameMode.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
