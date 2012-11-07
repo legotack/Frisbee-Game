@@ -27,7 +27,11 @@ function setForehand(magnitude : float) {
 }
 
 function getRadius() {
-	return transform.localScale.x / 2.0 + 0.41; //player width
+	return transform.localScale.x / 2.0; //player width
+}
+
+function getHeight() {
+	return transform.localScale.y / 2.0;
 }
 
 function FixedUpdate () {
