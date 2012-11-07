@@ -1,14 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Audio\AudioHandler.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\healthManager.js">
     <Files>
+      <File FileName="Assets\Scripts\healthManager.js" Line="15" Column="1" />
       <File FileName="Assets\Audio\DJOfAudio.js" Line="12" Column="15" />
       <File FileName="Assets\Scripts\AI.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\healthAI.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\healthManager.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\manageWeaponFiring.js" Line="1" Column="1" />
-      <File FileName="Assets\Classes\Store.js" Line="1" Column="1" />
-      <File FileName="Assets\Audio\AudioHandler.js" Line="15" Column="1" />
+      <File FileName="Assets\Audio\AudioHandler.js" Line="1" Column="1" />
       <File FileName="Assets\Classes\GameMode.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
