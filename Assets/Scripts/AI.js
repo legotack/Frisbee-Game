@@ -73,8 +73,11 @@ function Shoot () {
 	// Wait until half the animation has played
 	yield WaitForSeconds(delayShootTime);
 	
+	//here is the problem, it doesnt look at the player
+	//cleanup all the throw mechanics, move to inside the frisbee?
+	
 	// Fire frisbee
-	var f : Transform = Instantiate(frisbee,transform.position + transform.forward * frisbee.GetComponent(frisbeeMotion).getRadius(),transform.rotation); //here you can rotate 2x the angle downhill or just look at the player
+	var f : Transform = Instantiate(frisbee,frisbee.GetComponent(frisbeeMotion).getThrowPosition(transform,transform),transform.rotation); //here you can rotate 2x the angle downhill or just look at the player
 	frisbee.rigidbody.velocity = GetComponent(CharacterController).velocity;
 	frisbee.GetComponent(frisbeeMotion).shooter = transform;
 	audioStuff.playFrisbeeToss();

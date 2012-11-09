@@ -55,7 +55,7 @@ function Update () {
 function shoot(frisbee : Transform) {
 	weapon.reloadTimer.takeShot();
 	weapon.ammoCounter.takeShot();
-	var f : Transform = Instantiate(frisbee,transform.position + transform.parent.forward * 0.41 + transform.forward * frisbee.GetComponent(frisbeeMotion).getRadius() + transform.up * frisbee.GetComponent(frisbeeMotion).getHeight(),transform.rotation);
+	var f : Transform = Instantiate(frisbee,frisbee.GetComponent(frisbeeMotion).getThrowPosition(transform,transform.parent),transform.rotation);
 	frisbee.rigidbody.velocity = transform.parent.GetComponent(CharacterController).velocity;
 	frisbee.GetComponent(frisbeeMotion).shooter = transform;
 	audioStuff.playFrisbeeToss();

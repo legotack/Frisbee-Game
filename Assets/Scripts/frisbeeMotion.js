@@ -26,11 +26,15 @@ function setForehand(magnitude : float) {
 		lift *= 2 * magnitude;
 }
 
-function getRadius() {
+public function getThrowPosition(transform : Transform, body : Transform) : Vector3 {
+	return transform.position + body.forward * 0.41 + transform.forward * getRadius() + transform.up * getHeight();
+}
+
+private function getRadius() : float {
 	return transform.localScale.x / 2.0; //player width
 }
 
-function getHeight() {
+private function getHeight() : float {
 	return transform.localScale.y / 2.0;
 }
 
