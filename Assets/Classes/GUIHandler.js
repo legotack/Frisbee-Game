@@ -4,16 +4,18 @@ static class GUIHandler {
 
 	private var skin : GUISkin;
 
+	//TODO: make private/change names to upper case?
+
 	var GUIColor : Color;
 	var healthColor : Color;
 	var fadedBarColor : Color;
 	var deadScreenOverlay : Color;
 	var textColor : Color;
-	var backgroundColor : Color;
+	var gradientColor : Color;
 	
 	var menu : Texture;
 	var monotone : Texture;
-	var background : Texture;
+	var gradient : Texture;
 	var backhandReticle : Texture;
 	var forehandReticle : Texture;
 	var frisbeeIcon : Texture;
@@ -23,16 +25,20 @@ static class GUIHandler {
 		healthColor = colors[1];
 		fadedBarColor = colors[2];
 		deadScreenOverlay = colors[3];
-		backgroundColor = colors[4];
+		gradientColor = colors[4];
 	}
 	
 	function loadImages(images : Texture[]) {
 		menu = images[0];
 		monotone = images[1];
-		background = images[2];
+		gradient = images[2];
 		backhandReticle = images[3];
 		forehandReticle = images[4];
 		frisbeeIcon = images[5];
+	}
+	
+	private function getBoundedRectangle(rect : Rect) {
+		return Rect(rect.xMin + 5, rect.yMin + 5, rect.width - 10, rect.height - 10);
 	}
 	
 	function setSkin(skin : GUISkin) {
@@ -46,7 +52,8 @@ static class GUIHandler {
 	
 	function box(pos : Rect,s : String) {
 		GUI.skin = skin;
-		GUI.Box(pos,s);
+		GUI.DrawTexture(pos,gradient,ScaleMode.ScaleAndCrop);
+		GUI.Box(getBoundedRectangle(pos),s);
 	}
 	
 	function button(x : int, y : int, width : int, height : int, text : String) {
@@ -59,17 +66,18 @@ static class GUIHandler {
 		return GUI.Button(Rect(x,y,250,75),"",style);
 	}
 	
+	//will need slight revision, or overloading, can put in getBoundingRect
 	function progressBar(coeff : float, color : Color,inverted : boolean) {
 		GUI.color = Color.white;
 		if (inverted) {
-			GUI.DrawTexture(Rect(Screen.width - 25 - monotone.width,Screen.height - 25 - monotone.height,monotone.width + 10,monotone.height + 10),background,ScaleMode.StretchToFill);
+			GUI.DrawTexture(Rect(Screen.width - 25 - monotone.width,Screen.height - 25 - monotone.height,monotone.width + 10,monotone.height + 10),gradient,ScaleMode.StretchToFill);
 			GUI.color = fadedBarColor;
 			GUI.DrawTexture(Rect(Screen.width - 20 - monotone.width,Screen.height - 20 - monotone.height,monotone.width,monotone.height),monotone,ScaleMode.StretchToFill);
 			GUI.color = color;
 			GUI.DrawTexture(Rect(Screen.width - 20 - monotone.width * coeff,Screen.height - 20 - monotone.height,monotone.width * coeff,monotone.height),monotone,ScaleMode.StretchToFill);
 		}
 		else {
-			GUI.DrawTexture(Rect(15,Screen.height - 25 - monotone.height,monotone.width + 10,monotone.height + 10),background,ScaleMode.StretchToFill);
+			GUI.DrawTexture(Rect(15,Screen.height - 25 - monotone.height,monotone.width + 10,monotone.height + 10),gradient,ScaleMode.StretchToFill);
 			GUI.color = fadedBarColor;
 			GUI.DrawTexture(Rect(20,Screen.height - 20 - monotone.height,monotone.width,monotone.height),monotone,ScaleMode.StretchToFill);
 			GUI.color = color;

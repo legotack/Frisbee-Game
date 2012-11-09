@@ -1,10 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\manageWeaponFiring.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Classes\GUIHandler.js">
     <Files>
-      <File FileName="Assets\Scripts\frisbeeMotion.js" Line="29" Column="33" />
-      <File FileName="Assets\Scripts\manageWeaponFiring.js" Line="58" Column="50" />
-      <File FileName="Assets\Scripts\AI.js" Line="77" Column="64" />
+      <File FileName="Assets\Classes\GUIHandler.js" Line="58" Column="2" />
+      <File FileName="Assets\Scripts\manageWeaponFiring.js" Line="141" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
