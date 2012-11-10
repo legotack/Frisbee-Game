@@ -10,7 +10,8 @@ static class Global {
 	var waveStart : int = 1;
 	var infiniteAmmo : boolean = false;
 	var madHops : boolean = false;
-	var balance : int = 100;
+	var startBalance : int = 100;
+	var balance : int = startBalance;
 	
 	var selectedGamemode : GameMode;
 

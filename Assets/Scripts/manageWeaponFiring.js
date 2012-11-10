@@ -43,6 +43,7 @@ function Update () {
 		if(!gameOverNoisePlayed){
 			audioStuff.playEndGame();
 			gameOverNoisePlayed=true;
+			Global.balance = Global.startBalance;
 		}
 		if (game.gamemode.shouldRespawn(transform))
 			respawnTimer.update();

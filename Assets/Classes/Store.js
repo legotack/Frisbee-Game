@@ -54,13 +54,14 @@ class Store extends playerInteractor{
 		for(var y:int=0;y<playerLoadout.weapons.length;y++){
 			var remoteWeaponsY : InventoryWeapon = playerLoadout.weapons[y];
 			if(boughtWeapon.weaponName == remoteWeaponsY.weaponName){
+				if(remoteWeaponsY.ammoCounter.ammo == remoteWeaponsY.ammoCounter.ammoIncrement) return;
 				addAmmoToFrisbee(y);
 				Global.balance-=boughtWeapon.cost;
 				return;
 			}
 		}
 		playerLoadout.weapons.Add(weapons[weaponIndex]);
-		Global.balance-=boughtWeapon.cost+10;
+		Global.balance-=boughtWeapon.cost*2;
 	}
 	
 	function addAmmoToFrisbee(weaponIndex:int){
