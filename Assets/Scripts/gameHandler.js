@@ -6,12 +6,14 @@ var enemy : Transform;
 var gameOverTime : float;
 
 var gamemode : GameMode;
+private var audioStuff : AudioSource;
 
 function Start() {
 	gamemode = mainMenu.selectedGamemode;
 	gamemode.setMap(this);
 	gamemode.setup();
 	gameOverTime = 0;
+	audioStuff = GameObject.Find("Player(Clone)").Find("DJOfAudio").GetComponent(AudioSource);
 	
 	Physics.IgnoreLayerCollision(9,10);
 	Physics.IgnoreLayerCollision(10,11);
@@ -35,5 +37,6 @@ function OnGUI() {
 }
 
 function endGame(hasWon : boolean) {
+	audioStuff.Stop();
 	gamemode.endGame(hasWon);
 }
