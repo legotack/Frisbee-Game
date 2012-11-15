@@ -1,17 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Classes\GUIHandler.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Audio\AudioHandler.js">
     <Files>
-<<<<<<< HEAD
-      <File FileName="Assets\Classes\GUIHandler.js" Line="58" Column="2" />
-      <File FileName="Assets\Scripts\manageWeaponFiring.js" Line="141" Column="2" />
-=======
-      <File FileName="Assets\Classes\Store.js" Line="59" Column="5" />
-      <File FileName="Assets\Scripts\manageWeaponFiring.js" Line="52" Column="3" />
       <File FileName="Assets\Classes\GameMode.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\frisbeeMotion.js" Line="1" Column="1" />
-      <File FileName="Assets\Classes\Global.js" Line="14" Column="35" />
->>>>>>> df2c15055bd5d8a2f4c592ec32922d2420c6c82e
+      <File FileName="Assets\Scripts\healthManager.js" Line="13" Column="18" />
+      <File FileName="Assets\Audio\AudioHandler.js" Line="8" Column="19" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

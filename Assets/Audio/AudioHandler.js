@@ -4,9 +4,8 @@ var endGame : AudioClip;
 var deathNoise : AudioClip;
 var frisbeeToss : AudioClip;
 
-function Start () {
-}
-function Update () {
+@script RequireComponent(AudioSource)
+function Start() {
 }
 
 function playFrisbeeToss() {audio.PlayOneShot(frisbeeToss);}
